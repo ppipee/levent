@@ -9,9 +9,10 @@ export const SideBarWrapper = styled.div`
 	display: flex;
 `
 export const ContentWrapper = styled.div`
+	box-sizing: border-box;
 	padding: 24px;
 	min-height: calc(100vh - 56px);
-	margin-left: 22 4px;
+	margin-left: 224px;
 	flex-grow: 1;
 	background: ${WHITE};
 `

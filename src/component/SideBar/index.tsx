@@ -37,44 +37,49 @@ const username = 'ppipee'
 const SideBar = ({ children }: any) => {
 	const current_path = history.location.pathname
 	const [path, setPath] = useState(current_path)
-
-	if (children) {
-		const genTab = () =>
-			routes.map((data: Routes) => (
-				<TabWrapper
-					key={`route-${data.name}`}
-					active={data.route === path ? true : false}
-					onClick={() => {
-						setPath(data.route)
-					}}
-				>
-					<Link to={data.route}>
-						<Tab active={data.route === path ? true : false}>{data.name}</Tab>
-					</Link>
-				</TabWrapper>
-			))
-		return (
-			<SideBarWrapper>
-				<Bar>
-					<Heading>
-						<AccountCircle />
-						<div>{username}</div>
-					</Heading>
-					{genTab()}
-					<ControlWrapper>
-						<Control>
-							{setting.map(data => (
-								<Link to={data.route}>
-									<ControlContent>{data.name}</ControlContent>
-								</Link>
-							))}
-						</Control>
-					</ControlWrapper>
-				</Bar>
-				<ContentWrapper>{children}</ContentWrapper>
-			</SideBarWrapper>
-		)
-	}
-	return <></>
+	// if (current_path.split('/')[1] === 'dashboard') {
+	const genTab = () =>
+		routes.map((data: Routes) => (
+			<TabWrapper
+				key={`route-${data.name}`}
+				active={data.route === path ? true : false}
+				onClick={() => {
+					setPath(data.route)
+				}}
+			>
+				<Link to={data.route}>
+					<Tab active={data.route === path ? true : false}>{data.name}</Tab>
+				</Link>
+			</TabWrapper>
+		))
+	return (
+		<SideBarWrapper>
+			<Bar>
+				<Heading>
+					<AccountCircle />
+					<div>{username}</div>
+				</Heading>
+				{genTab()}
+				<ControlWrapper>
+					<Control>
+						{setting.map(data => (
+							<Link
+								to={data.route}
+								key={`route-${data.name}`}
+								onClick={() => {
+									setPath(data.route)
+								}}
+							>
+								<ControlContent>{data.name}</ControlContent>
+							</Link>
+						))}
+					</Control>
+				</ControlWrapper>
+			</Bar>
+			<ContentWrapper>{children}</ContentWrapper>
+		</SideBarWrapper>
+	)
+	// }
+	// return <></>
 }
 export default SideBar

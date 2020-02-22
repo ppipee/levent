@@ -1,10 +1,13 @@
 import React from 'react'
+import { SideBar } from 'component'
 
 const Dashboard = () => {
 	return (
-		<div>
-			<h2>Dashboard</h2>
-		</div>
+		<SideBar>
+			<div>
+				<h2>Dashboard</h2>
+			</div>
+		</SideBar>
 	)
 }
 export default Dashboard
