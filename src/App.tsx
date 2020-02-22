@@ -1,12 +1,18 @@
 import React from 'react'
 import Routes from './Routes'
+import { ThemeProvider, createMuiTheme } from '@material-ui/core'
 
-const App = () => {
-	return (
-		<div>
-			<h1>Levent</h1>
-			<Routes />
-		</div>
-	)
-}
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+			main: '#6F86D6',
+		},
+	},
+})
+
+const App = () => (
+	<ThemeProvider theme={theme}>
+		<Routes />
+	</ThemeProvider>
+)
 export default App
