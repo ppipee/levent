@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { CenterFlex, FontColor, WHITE, BLACK } from 'common/style'
+import { CenterFlex, FontColor, WHITE, BLACK, ContainerResponse } from 'common/style'
 
 interface PropsType {
 	active: boolean
@@ -9,12 +9,9 @@ export const SideBarWrapper = styled.div`
 	display: flex;
 `
 export const ContentWrapper = styled.div`
-	box-sizing: border-box;
-	padding: 24px;
-	min-height: calc(100vh - 56px);
 	margin-left: 224px;
 	flex-grow: 1;
-	background: ${WHITE};
+	${ContainerResponse}
 `
 export const Bar = styled.div`
 	${FontColor('white')}
@@ -25,11 +22,6 @@ export const Bar = styled.div`
 	width: 224px;
 	height: calc(100vh - 56px);
 	font-size: 18px;
-	a {
-		height: inherit;
-		color: inherit;
-		text-decoration: none;
-	}
 `
 
 export const TabWrapper = styled.div`

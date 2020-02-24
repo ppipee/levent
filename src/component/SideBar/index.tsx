@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ReactNode } from 'react'
 import {
 	SideBarWrapper,
 	Bar,
@@ -34,24 +34,19 @@ interface Routes {
 
 const username = 'ppipee'
 
-const SideBar = ({ children }: any) => {
+const SideBar = ({ children }: { children: ReactNode }) => {
 	const current_path = history.location.pathname
-	const [path, setPath] = useState(current_path)
-	// if (current_path.split('/')[1] === 'dashboard') {
 	const genTab = () =>
-		routes.map((data: Routes) => (
-			<TabWrapper
-				key={`route-${data.name}`}
-				active={data.route === path ? true : false}
-				onClick={() => {
-					setPath(data.route)
-				}}
-			>
-				<Link to={data.route}>
-					<Tab active={data.route === path ? true : false}>{data.name}</Tab>
-				</Link>
-			</TabWrapper>
-		))
+		routes.map((data: Routes) => {
+			const check_current = data.route === current_path
+			return (
+				<TabWrapper key={`route-${data.name}`} active={check_current ? true : false}>
+					<Link to={data.route}>
+						<Tab active={check_current ? true : false}>{data.name}</Tab>
+					</Link>
+				</TabWrapper>
+			)
+		})
 	return (
 		<SideBarWrapper>
 			<Bar>
@@ -63,20 +58,16 @@ const SideBar = ({ children }: any) => {
 				<ControlWrapper>
 					<Control>
 						{setting.map(data => (
-							<Link
-								to={data.route}
-								key={`route-${data.name}`}
-								onClick={() => {
-									setPath(data.route)
-								}}
-							>
+							<Link to={data.route} key={`route-${data.name}`}>
 								<ControlContent>{data.name}</ControlContent>
 							</Link>
 						))}
 					</Control>
 				</ControlWrapper>
 			</Bar>
-			<ContentWrapper>{children}</ContentWrapper>
+			<ContentWrapper>
+				<>{children}</>
+			</ContentWrapper>
 		</SideBarWrapper>
 	)
 	// }
