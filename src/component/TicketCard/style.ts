@@ -63,8 +63,9 @@ export const TicketLink = styled.div`
 	}
 `
 export const Title = styled.div`
-	font-weight: bold;
+	font-weight: medium;
 	margin-bottom: 4px;
+	line-height: 20px;
 `
 
 export const PlaceWrapper = styled.div`
