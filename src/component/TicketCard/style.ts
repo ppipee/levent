@@ -30,7 +30,7 @@ export const TicketContainner = styled.div`
 	position: absolute;
 	border-radius: 2px;
 	margin: 6px;
-	background-color: white;
+	background-color: rgba(256, 256, 256, 0.8);
 	padding: 6px 8px;
 	box-sizing: border-box;
 `
