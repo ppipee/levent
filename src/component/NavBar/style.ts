@@ -15,6 +15,7 @@ export const SubTitle = styled(Title)`
 export const Bar = styled.div`
 	${SpaceBetweenFlex()}
 	position: fixed;
+	z-index: 10;
 	top: 0;
 	height: 56px;
 	width: 100%;

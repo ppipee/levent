@@ -3,6 +3,13 @@ import { css } from 'styled-components'
 export const WHITE = '#F7F7F7'
 export const BLACK = '#404040'
 
+export const SoftShadow = css`
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`
+export const HardShadow = css`
+	box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.2);
+`
+
 export const FontColor = (color: string) =>
 	css`
 		color: ${color === 'white' ? WHITE : BLACK};
@@ -26,8 +33,8 @@ export const CenterFlex = (direction = 'row') => css`
 	flex-direction: ${direction};
 `
 export const ContainerResponse = css`
-	max-width: 968px;
-	width: 100%;
+	max-width: 1152px;
+	/* width: 100%; */
 	box-sizing: border-box;
 	padding: 24px;
 	min-height: calc(100vh - 56px);

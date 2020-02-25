@@ -8,18 +8,23 @@ interface PropsType {
 export const SideBarWrapper = styled.div`
 	display: flex;
 `
+export const SideBarEmpty = styled.div`
+	height: inherit;
+	width: 240px;
+	min-width: 240px;
+`
 export const ContentWrapper = styled.div`
-	margin-left: 224px;
-	flex-grow: 1;
 	${ContainerResponse}
+	flex-grow: 1;
 `
 export const Bar = styled.div`
 	${FontColor('white')}
 	background-color: ${BLACK};
 	position: fixed;
+	z-index:10;
 	left: 0;
 	top: 56px;
-	width: 224px;
+	width: 240px;
 	height: calc(100vh - 56px);
 	font-size: 18px;
 `
@@ -42,7 +47,7 @@ export const TabWrapper = styled.div`
 `
 export const Tab = styled.div`
 	box-sizing: border-box;
-	width: 204px;
+	width: 220px;
 	padding: 8px 10px;
 	height: inherit;
 	pointer-events: none;
@@ -55,7 +60,8 @@ export const Tab = styled.div`
 					${FontColor('black')}
 					transition: all 0.4s;
 					background: ${WHITE};
-					margin-left: calc(224px - 204px);
+					font-size: 20px;
+					margin-left: calc(240px - 220px);
 					box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
 					&::after {
 						content: '';

@@ -9,6 +9,7 @@ import {
 	Control,
 	ControlWrapper,
 	ControlContent,
+	SideBarEmpty,
 } from './style'
 import { Link } from 'react-router-dom'
 import history from 'common/history'
@@ -65,9 +66,8 @@ const SideBar = ({ children }: { children: ReactNode }) => {
 					</Control>
 				</ControlWrapper>
 			</Bar>
-			<ContentWrapper>
-				<>{children}</>
-			</ContentWrapper>
+			<SideBarEmpty />
+			<ContentWrapper>{children}</ContentWrapper>
 		</SideBarWrapper>
 	)
 	// }
