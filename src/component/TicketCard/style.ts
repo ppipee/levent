@@ -1,5 +1,13 @@
 import styled from 'styled-components'
 import { CenterFlex, FontColor, SoftShadow, HardShadow } from 'common/style'
+import { LeventGradient, BlueGradient, GreenGradient, GrayGradient } from 'common/bggradient'
+
+const Gradient: { [key: string]: { head: string; tail: string } } = {
+	levent: LeventGradient,
+	gray: GrayGradient,
+	blue: BlueGradient,
+	green: GreenGradient,
+}
 
 export const TicketWrapper = styled.div`
 	width: 256px;
@@ -8,21 +16,21 @@ export const TicketWrapper = styled.div`
 	${FontColor('black')}
 	margin:8px;
 	${SoftShadow}
-	transition:all 0.4s;
+	transition:all 0.2s;
 	&:hover {
 		cursor: pointer;
 		position: relative;
 		top: -2px;
+		left: -2px;
 		${HardShadow}
 	}
 `
-
 export const TicketBackground = styled.div`
 	width: 200px;
 	height: 88px;
 	position: relative;
-	background: linear-gradient(108.76deg, #fa709a 0%, #fdc754 97.19%);
 	border-radius: 4px;
+	${({ color }: { color: string }) => Gradient[color].head}
 `
 export const TicketContainner = styled.div`
 	width: 188px;
@@ -41,7 +49,7 @@ export const TicketLink = styled.div`
 	/* margin-left: 2px; */
 	position: relative;
 	border-radius: 4px;
-	background: linear-gradient(96.16deg, #fdc555 27.94%, #fee140 100%);
+	${({ color }: { color: string }) => Gradient[color].tail}
 	${CenterFlex()}
 	&::after {
 		content: '';

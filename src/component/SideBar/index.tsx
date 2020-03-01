@@ -37,6 +37,7 @@ const username = 'ppipee'
 
 const SideBar = ({ children }: { children: ReactNode }) => {
 	const current_path = history.location.pathname
+
 	const genTab = () =>
 		routes.map((data: Routes) => {
 			const check_current = data.route === current_path
@@ -48,6 +49,7 @@ const SideBar = ({ children }: { children: ReactNode }) => {
 				</TabWrapper>
 			)
 		})
+
 	return (
 		<SideBarWrapper>
 			<Bar>
@@ -70,7 +72,5 @@ const SideBar = ({ children }: { children: ReactNode }) => {
 			<ContentWrapper>{children}</ContentWrapper>
 		</SideBarWrapper>
 	)
-	// }
-	// return <></>
 }
 export default SideBar
