@@ -14,6 +14,7 @@ export const SubTitle = styled(Title)`
 `
 export const Bar = styled.div`
 	${SpaceBetweenFlex()}
+	align-items:center;
 	position: fixed;
 	z-index: 10;
 	top: 0;
@@ -26,7 +27,7 @@ export const Bar = styled.div`
 
 export const Button = styled.div`
 	${SpaceBetweenFlex()}
-	box-sizing:border-box;
+	box-sizing: border-box;
 	height: 45px;
 	padding: 5px 10px;
 	/* margin: 8px 2.5px; */
