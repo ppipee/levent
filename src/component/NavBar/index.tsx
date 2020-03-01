@@ -8,11 +8,11 @@ const NavBar = ({ children }: any) => {
 		<>
 			<EmptyBox />
 			<Bar>
-				<Link to="/">
-					<Button>
-						<Title>Levent</Title>
-					</Button>
-				</Link>
+				<Title>
+					<Link to="/">
+						<Button>Levent</Button>
+					</Link>
+				</Title>
 				<SubTitle>
 					<Link to="/dashboard">
 						<Button>

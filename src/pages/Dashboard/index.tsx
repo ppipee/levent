@@ -13,7 +13,7 @@ const TICKET = [
 		color: 'levent',
 	},
 	{
-		name: 'TedXKasetsart',
+		name: 'TedXKasetsart2',
 		date: '01 Dec 2019',
 		time: '08.00 - 16.00',
 		place: { name: 'สำนักพิพิธภัณฑ์และวัฒนธรรมการเกษตร', province: 'กรุงเทพฯ' },
@@ -26,8 +26,16 @@ const Dashboard = () => {
 			<PageTitle title="Dashboard" />
 			<EventBoard name="join" showall="/dashboard/join">
 				{TICKET.map(({ name, date, time, place, color = 'gray' }: EventTypes) => {
-					console.log(color)
-					return <TicketCard name={name} date={date} place={place} time={time} color={color} />
+					return (
+						<TicketCard
+							key={`ticket-${name}-${color}`}
+							name={name}
+							date={date}
+							place={place}
+							time={time}
+							color={color}
+						/>
+					)
 				})}
 			</EventBoard>
 			<EventBoard name="favourite" showall="/dashboard/favourite"></EventBoard>

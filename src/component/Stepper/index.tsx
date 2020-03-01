@@ -27,7 +27,7 @@ import MapIcon from 'asset/icon/map.svg'
 import RouteIcon from 'asset/icon/route.svg'
 import GalleryIcon from 'asset/icon/gallery.svg'
 import TicketIcon from 'asset/icon/ticket.svg'
-import SponserIcon from 'asset/icon/sponser.svg'
+import SponserIcon from 'asset/icon/sponser1.svg'
 import FollowIcon from 'asset/icon/follower.svg'
 import CheckIcon from 'asset/icon/check.svg'
 
@@ -91,7 +91,7 @@ const Stepper = () => {
 	const SecondStep = () => (
 		<CardToolsWrapper>
 			{WEBTOOLS.map(tool => (
-				<CardToolsBorder active={tools[tool.name]}>
+				<CardToolsBorder active={tools[tool.name]} key={`step-${tool.name}`}>
 					<CardToolsContent>
 						<ToolIcon>
 							<img src={tool.icon} alt={`${tool.name}-icon`} />
