@@ -1,4 +1,4 @@
-import { IWebTools } from './type'
+import { IWebTools, IServices } from './type'
 
 export const DEFAULT_INFO = {
 	name: '',
@@ -15,7 +15,7 @@ export const DEFAULT_INFO = {
 	shortTeaser: '',
 }
 
-export const DEFAULT_WEB_TOOLS: IWebTools = {
+export const DEFAULT_WEB_TOOLS: IWebTools & { [key: string]: boolean } = {
 	schedule: false,
 	registration: false,
 	map: false,
@@ -26,8 +26,14 @@ export const DEFAULT_WEB_TOOLS: IWebTools = {
 	socialFollow: false,
 }
 
-export const DEFAULT_SERVICES = {
-	page: 'single',
+export const DEFAULT_SERVICES: IServices & { [key: string]: any } = {
+	page: {
+		single: true,
+		multi: false,
+	},
 	registration: false,
-	ticket: ['free'],
+	ticket: {
+		free: false,
+		pay: false,
+	},
 }

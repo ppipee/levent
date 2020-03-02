@@ -18,9 +18,15 @@ import {
 	CheckButton,
 	CardToolsTitle,
 	ToolIcon,
+	CardServicesWrapper,
+	CardServicesContainer,
+	CardServiceBorder,
+	ServiceIcon,
+	ServiceCheckButton,
 } from './style'
 import CloseIcon from 'asset/icon/close.svg'
 import { DEFAULT_INFO, DEFAULT_SERVICES, DEFAULT_WEB_TOOLS } from 'common/constant'
+// second step
 import ScheduleIcon from 'asset/icon/schedule.svg'
 import RegistrationIcon from 'asset/icon/registration.svg'
 import MapIcon from 'asset/icon/map.svg'
@@ -30,6 +36,13 @@ import TicketIcon from 'asset/icon/ticket.svg'
 import SponserIcon from 'asset/icon/sponser1.svg'
 import FollowIcon from 'asset/icon/follower.svg'
 import CheckIcon from 'asset/icon/check.svg'
+// third step
+import SingleIcon from 'asset/icon/single.svg'
+import MultiIcon from 'asset/icon/multi.svg'
+import FormIcon from 'asset/icon/form.svg'
+import ReportIcon from 'asset/icon/report.svg'
+import QrScanIcon from 'asset/icon/qr-code.svg'
+import PayIcon from 'asset/icon/pay.svg'
 
 const WEBTOOLS = [
 	{ name: 'schedule', icon: ScheduleIcon },
@@ -41,6 +54,21 @@ const WEBTOOLS = [
 	{ name: 'sponser', icon: SponserIcon },
 	{ name: 'social follow', icon: FollowIcon },
 ]
+const SERVICES: { [key: string]: any[] } = {
+	page: [
+		{ name: 'single', icon: SingleIcon },
+		{ name: 'multi', icon: MultiIcon },
+	],
+	registration: [
+		{ name: 'form', icon: FormIcon },
+		{ name: 'report', icon: ReportIcon },
+		{ name: 'QR scanner', icon: QrScanIcon },
+	],
+	ticket: [
+		{ name: 'free', icon: TicketIcon },
+		{ name: 'pay', icon: PayIcon },
+	],
+}
 const Stepper = () => {
 	const [show, setShow] = useState(true)
 	const [info, setInfo] = useState(DEFAULT_INFO)
@@ -69,6 +97,14 @@ const Stepper = () => {
 		else if (step === 1) {
 			const check = e.getAttribute('value') === 'true' ? true : false
 			setTools({ ...tools, [key]: !check })
+		} else if (step === 2) {
+			const role = e.getAttribute('role') as string
+			const check = e.getAttribute('value') === 'true' ? true : false
+			if (role === 'page') {
+				const page_state: any = { single: false, multi: false }
+				page_state[key] = true
+				setServices({ ...services, [role]: page_state })
+			} else setServices({ ...services, [role]: { ...services[role], [key]: !check } })
 		}
 	}
 	const FirstStep = () => (
@@ -91,7 +127,13 @@ const Stepper = () => {
 	const SecondStep = () => (
 		<CardToolsWrapper>
 			{WEBTOOLS.map(tool => (
-				<CardToolsBorder active={tools[tool.name]} key={`step-${tool.name}`}>
+				<CardToolsBorder
+					active={tools[tool.name]}
+					key={`step-${tool.name}`}
+					data-key={tool.name}
+					onClick={setState}
+					data-value={tools[tool.name]}
+				>
 					<CardToolsContent>
 						<ToolIcon>
 							<img src={tool.icon} alt={`${tool.name}-icon`} />
@@ -109,7 +151,42 @@ const Stepper = () => {
 			))}
 		</CardToolsWrapper>
 	)
-	const ThirdStep = () => <div>Third</div>
+	const ThirdStep = () =>
+		Object.keys(SERVICES).map(key => (
+			<CardServicesWrapper>
+				<InputTitle>{key}</InputTitle>
+				<CardServicesContainer>
+					{SERVICES[key].map(data => (
+						<CardServiceBorder>
+							<CardToolsContent>
+								<ServiceIcon>
+									<img src={data.icon} alt={`${data.name}-icon`} />
+								</ServiceIcon>
+								<CardToolsTitle>{data.name}</CardToolsTitle>
+								{key !== 'registration' &&
+									(services[key][data.name] ? (
+										<ServiceCheckButton
+											onClick={setState}
+											role={key}
+											data-key={data.name}
+											value={services[key][data.name]}
+										>
+											<img src={CheckIcon} alt="check-icon" />
+										</ServiceCheckButton>
+									) : (
+										<ServiceCheckButton
+											onClick={setState}
+											role={key}
+											data-key={data.name}
+											value={services[key][data.name]}
+										/>
+									))}
+							</CardToolsContent>
+						</CardServiceBorder>
+					))}
+				</CardServicesContainer>
+			</CardServicesWrapper>
+		))
 
 	const STEP = [
 		{ title: 'General Info', button: ['cancel', 'next'], component: FirstStep() },

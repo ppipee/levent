@@ -24,6 +24,8 @@ export const CardContent = styled.div`
 	border-radius: 0 0 4px 4px;
 	box-sizing: border-box;
 	padding: 18px 32px;
+	font-size: 16px;
+	text-transform: capitalize;
 	${CenterFlex('column')}
 `
 export const CardTitle = styled.div`
@@ -61,14 +63,11 @@ export const InputWrapper = styled.div`
 	margin: 6px 0;
 `
 export const InputTitle = styled.div`
-	text-transform: capitalize;
-	font-size: 18px;
 	margin-bottom: 4px;
 `
 
 export const InputField = styled.input`
 	${Field}
-	font-size: 16px;
 	line-height: 16px;
 	box-sizing: border-box;
 	padding: 10px 12px;
@@ -82,7 +81,7 @@ interface PropTypes {
 }
 export const BorderInput = styled.div`
 	${BorderGradient}
-	transition: all 0.3s;
+	transition: all 0.8s;
 	${({ active }: PropTypes) =>
 		active
 			? css`
@@ -103,6 +102,7 @@ export const CardToolsWrapper = styled.div`
 	padding: 14px 24px 0;
 	box-sizing: border-box;
 	max-width: 600px;
+	min-width: 375px;
 	width: 100%;
 `
 export const CardToolsBorder = styled(BorderInput)`
@@ -120,10 +120,7 @@ export const CardToolsContent = styled.div`
 	${SpaceBetweenFlex()}
 `
 export const CardToolsTitle = styled.div`
-	margin-right: auto;
-	font-size: 18px;
-	text-transform: capitalize;
-	margin-left: 8px;
+	margin: 0 auto 0 8px;
 `
 export const CheckButton = styled.div`
 	${({ value }: { value: boolean }) =>
@@ -152,4 +149,55 @@ export const ToolIcon = styled.div`
 	img {
 		margin: auto;
 	}
+`
+
+// third step
+export const CardServicesWrapper = styled.div`
+	margin: 8px 0;
+	box-sizing: border-box;
+	padding: 16px 12px 12px;
+	border-radius: 5px;
+	border: 1px solid ${WHITE_GRAY};
+	text-transform: capitalize;
+	max-width: 480px;
+	width: 100%;
+`
+export const CardServicesContainer = styled.div`
+	${CenterFlex()}
+	flex-wrap:wrap;
+	justify-content: start;
+`
+
+export const CardServiceBorder = styled(BorderInput)`
+	height: 54px;
+	width: 176px;
+	margin: 6px;
+`
+export const ServiceIcon = styled(ToolIcon)`
+	width: 30px;
+	height: 30px;
+	img {
+		width: inherit;
+		height: inherit;
+	}
+`
+export const ServiceCheckButton = styled.div`
+	${({ value }: { value: boolean }) =>
+		value
+			? css`
+					display: flex ;
+					img {
+						pointer-events: none;
+						width: 25px;
+						height: 25px;
+			  `
+			: css`
+					width: 21.09px;
+					height: 21.09px;
+					border-radius: 5.5px;
+					background-color: white;
+					box-sizing: border-box;
+					border: 1.5px solid ${WHITE_GRAY};
+					margin-right: 4.91px;
+			  `};
 `

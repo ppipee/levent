@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 import { BoardWrapper, BoardTitle, BoardContainner, NoEvent } from './style'
 import { Link } from 'react-router-dom'
+import ButtonDetail from 'component/ButtonDetail'
 
 interface EventProps {
 	name: string
@@ -14,7 +15,11 @@ const EventBoard = ({ name, children, showall }: EventProps) => {
 		<BoardWrapper>
 			<BoardTitle>
 				<div>{`${name} Event`}</div>
-				{showall !== undefined && <Link to={showall}>Show all</Link>}
+				{showall !== undefined && (
+					<ButtonDetail>
+						<Link to={showall}>Show all</Link>
+					</ButtonDetail>
+				)}
 			</BoardTitle>
 			<BoardContainner>
 				{get_event && children}

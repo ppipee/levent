@@ -8,7 +8,6 @@ export interface EventTypes {
 }
 
 export interface IWebTools {
-	[key: string]: boolean
 	schedule: boolean
 	registration: boolean
 	map: boolean
@@ -17,4 +16,15 @@ export interface IWebTools {
 	ticket: boolean
 	sponser: boolean
 	socialFollow: boolean
+}
+export interface IServices {
+	page: {
+		single: boolean
+		multi: boolean
+	}
+	registration: boolean
+	ticket: {
+		free: boolean
+		pay: boolean
+	}
 }
