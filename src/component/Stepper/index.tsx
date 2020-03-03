@@ -6,18 +6,17 @@ import { DEFAULT_INFO, DEFAULT_SERVICES, DEFAULT_WEB_TOOLS } from 'common/consta
 import FirstStep from './FirstStep'
 import SecondStep from './SecondStep'
 import ThirdStep from './ThirdStep'
+import useRedux from 'common/useRedux'
 
 const Stepper = () => {
-	const [show, setShow] = useState(true)
+	const [state, dispatch] = useRedux('stepper')
 	const [info, setInfo] = useState(DEFAULT_INFO)
 	const [tools, setTools] = useState(DEFAULT_WEB_TOOLS)
 	const [services, setServices] = useState(DEFAULT_SERVICES)
 	const [step, setStep] = useState(0)
+
 	const handleClose = () => {
-		setShow(false)
-	}
-	const handleOpen = () => {
-		setShow(true)
+		dispatch({ type: 'CLOSE' })
 	}
 	const nextStep = () => {
 		if (step < 2) setStep(step + 1)
@@ -25,7 +24,7 @@ const Stepper = () => {
 	}
 	const prevStep = () => {
 		if (step > 0) setStep(step - 1)
-		else setShow(false)
+		else handleClose()
 	}
 	const setState = (event: MouseEvent<HTMLDivElement> & ChangeEvent<HTMLInputElement>) => {
 		const e = event.target as HTMLInputElement
@@ -56,7 +55,7 @@ const Stepper = () => {
 		},
 	]
 	return (
-		<Popup show={show} handleClose={handleClose}>
+		<Popup show={state.show} handleClose={handleClose}>
 			<CardWrapper>
 				<CardTitle>
 					{STEP[step].title}

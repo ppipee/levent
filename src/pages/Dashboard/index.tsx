@@ -3,6 +3,7 @@ import { PageTitle, EventBoard, TicketCard } from 'component'
 import { EventTypes } from 'common/type'
 import CreateCard from 'component/CreateCard'
 import Stepper from 'component/Stepper'
+import useRedux from 'common/useRedux'
 
 const TICKET = [
 	{
@@ -21,6 +22,10 @@ const TICKET = [
 	},
 ]
 const Dashboard = () => {
+	const [state, dispatch] = useRedux('stepper')
+	const handleOpen = () => {
+		dispatch({ type: 'OPEN' })
+	}
 	return (
 		<div>
 			<PageTitle title="Dashboard" />
@@ -40,9 +45,9 @@ const Dashboard = () => {
 			</EventBoard>
 			<EventBoard name="favourite" showall="/dashboard/favourite"></EventBoard>
 			<EventBoard name="organize" showall="/dashboard/organize">
-				<CreateCard />
+				<CreateCard handleOpen={handleOpen} />
 			</EventBoard>
-			<Stepper />
+			{state.show && <Stepper />}
 		</div>
 	)
 }

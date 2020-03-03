@@ -1,6 +1,7 @@
 import React from 'react'
 import Routes from './Routes'
 import { ThemeProvider, createMuiTheme } from '@material-ui/core'
+import { ContextProvider } from 'stores/index'
 
 const theme = createMuiTheme({
 	palette: {
@@ -12,7 +13,9 @@ const theme = createMuiTheme({
 
 const App = () => (
 	<ThemeProvider theme={theme}>
-		<Routes />
+		<ContextProvider>
+			<Routes />
+		</ContextProvider>
 	</ThemeProvider>
 )
 export default App
