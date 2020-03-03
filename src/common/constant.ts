@@ -26,7 +26,11 @@ export const DEFAULT_WEB_TOOLS: IWebTools & { [key: string]: boolean } = {
 	socialFollow: false,
 }
 
-export const DEFAULT_SERVICES: IServices & { [key: string]: any } = {
+interface PropTypes {
+	[key: string]: any
+}
+
+export const DEFAULT_SERVICES: IServices & PropTypes = {
 	page: {
 		single: true,
 		multi: false,
