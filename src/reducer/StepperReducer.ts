@@ -1,4 +1,5 @@
 import { useReducer } from 'react'
+import { StepperAction } from 'action'
 
 export interface IStepperState {
 	show: boolean
@@ -14,9 +15,9 @@ const initialState: IStepperState = {
 const StepperReducer = () => {
 	const [state, dispatch] = useReducer((state: IStepperState, action: IStepperAction) => {
 		switch (action.type) {
-			case 'OPEN':
+			case StepperAction.open:
 				return { show: true }
-			case 'CLOSE':
+			case StepperAction.close:
 				return { show: false }
 			default:
 				return state
