@@ -5,7 +5,7 @@ import { PageTitle } from 'component'
 const FavouriteEvent = () => {
 	return (
 		<div>
-			<PageTitle title="Favourite Event" />
+			<PageTitle>Favourite Event</PageTitle>
 			<EventBoard name="favourite">card</EventBoard>
 		</div>
 	)

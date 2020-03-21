@@ -1,6 +1,16 @@
 import React from 'react'
 import { Router, Route, Switch } from 'react-router-dom'
-import { Home, Signin, Signup, Dashboard, JoinEvent, FavouriteEvent, OrganizeEvent, Notification } from 'pages'
+import {
+	Home,
+	Signin,
+	Signup,
+	Dashboard,
+	JoinEvent,
+	FavouriteEvent,
+	OrganizeEvent,
+	Notification,
+	OverviewEvent,
+} from 'pages'
 import history from 'common/history'
 import { NavBar, SideBar } from 'component'
 
@@ -38,7 +48,8 @@ const Routes = () => {
 				<Route path="/register" component={Signup} />
 				<NavRoute exact path="/" component={Home} />
 				<SideRoute exact path="/dashboard" component={Dashboard} />
-				<SideRoute path="/dashboard/organize" component={OrganizeEvent} />
+				<SideRoute exact path="/dashboard/organize" component={OrganizeEvent} />
+				<SideRoute path="/dashboard/organize/:id" component={OverviewEvent} />
 				<SideRoute path="/dashboard/join" component={JoinEvent} />
 				<SideRoute path="/dashboard/favourite" component={FavouriteEvent} />
 				<SideRoute path="/dashboard/notice" component={Notification} />

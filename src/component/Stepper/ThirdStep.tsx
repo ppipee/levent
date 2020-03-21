@@ -36,17 +36,20 @@ const SERVICES: { [key: string]: any[] } = {
 
 interface PropTypes {
 	services: any
+	registration: boolean
 	setState: (event: MouseEvent<HTMLDivElement> & ChangeEvent<HTMLInputElement>) => void
 }
 
-const ThirdStep = ({ services, setState }: PropTypes) => (
+const ThirdStep = ({ services, setState, registration }: PropTypes) => (
 	<>
 		{Object.keys(SERVICES).map(key => (
-			<CardServicesWrapper>
+			<CardServicesWrapper key={`card-service-${key}`}>
 				<InputTitle>{key}</InputTitle>
 				<CardServicesContainer>
 					{SERVICES[key].map(data => (
-						<CardServiceBorder>
+						<CardServiceBorder
+							active={key === 'registration' && registration ? true : services[key][data.name]}
+						>
 							<CardToolsContent>
 								<ServiceIcon>
 									<img src={data.icon} alt={`${data.name}-icon`} />
@@ -58,7 +61,7 @@ const ThirdStep = ({ services, setState }: PropTypes) => (
 											onClick={setState}
 											role={key}
 											data-key={data.name}
-											value={services[key][data.name]}
+											value={true}
 										>
 											<img src={CheckIcon} alt="check-icon" />
 										</ServiceCheckButton>
@@ -67,7 +70,7 @@ const ThirdStep = ({ services, setState }: PropTypes) => (
 											onClick={setState}
 											role={key}
 											data-key={data.name}
-											value={services[key][data.name]}
+											value={false}
 										/>
 									))}
 							</CardToolsContent>

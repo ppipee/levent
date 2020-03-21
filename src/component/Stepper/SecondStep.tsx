@@ -18,40 +18,37 @@ interface PropTypes {
 
 const WEBTOOLS = [
 	{ name: 'schedule', icon: ScheduleIcon },
-	{ name: 'registratoin', icon: RegistrationIcon },
+	{ name: 'registration', icon: RegistrationIcon },
 	{ name: 'map', icon: MapIcon },
 	{ name: 'route', icon: RouteIcon },
 	{ name: 'gallery', icon: GalleryIcon },
 	{ name: 'ticket', icon: TicketIcon },
 	{ name: 'sponser', icon: SponserIcon },
-	{ name: 'social follow', icon: FollowIcon },
+	{ name: 'social follow', icon: FollowIcon, dataKey: 'socialFollow' },
 ]
 
 const SecondStep = ({ tools, setState }: PropTypes) => (
 	<CardToolsWrapper>
-		{WEBTOOLS.map(tool => (
-			<CardToolsBorder
-				active={tools[tool.name]}
-				key={`step-${tool.name}`}
-				data-key={tool.name}
-				onClick={setState}
-				data-value={tools[tool.name]}
-			>
-				<CardToolsContent>
-					<ToolIcon>
-						<img src={tool.icon} alt={`${tool.name}-icon`} />
-					</ToolIcon>
-					<CardToolsTitle>{tool.name}</CardToolsTitle>
-					{tools[tool.name] ? (
-						<CheckButton onClick={setState} data-key={tool.name} value={tools[tool.name]}>
-							<img src={CheckIcon} alt="check-icon" />
-						</CheckButton>
-					) : (
-						<CheckButton onClick={setState} data-key={tool.name} value={tools[tool.name]} />
-					)}
-				</CardToolsContent>
-			</CardToolsBorder>
-		))}
+		{WEBTOOLS.map(tool => {
+			const key = tool.dataKey ? tool.dataKey : tool.name
+			return (
+				<CardToolsBorder active={tools[key]} key={`step-${tool.name}`}>
+					<CardToolsContent>
+						<ToolIcon>
+							<img src={tool.icon} alt={`${tool.name}-icon`} />
+						</ToolIcon>
+						<CardToolsTitle>{tool.name}</CardToolsTitle>
+						{tools[key] ? (
+							<CheckButton onClick={setState} data-key={key} value={true}>
+								<img src={CheckIcon} alt="check-icon" />
+							</CheckButton>
+						) : (
+							<CheckButton onClick={setState} data-key={key} value={false} />
+						)}
+					</CardToolsContent>
+				</CardToolsBorder>
+			)
+		})}
 	</CardToolsWrapper>
 )
 

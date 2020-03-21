@@ -4,7 +4,7 @@ import { PageTitle } from 'component'
 const Dashboard = () => {
 	return (
 		<div>
-			<PageTitle title="Notification" />
+			<PageTitle>Notification</PageTitle>
 		</div>
 	)
 }

@@ -4,6 +4,8 @@ import { EventTypes } from 'common/type'
 import CreateCard from 'component/CreateCard'
 import Stepper from 'component/Stepper'
 import useRedux from 'common/useRedux'
+import { Link } from 'react-router-dom'
+import { StepperAction } from 'action'
 
 const TICKET = [
 	{
@@ -24,11 +26,11 @@ const TICKET = [
 const Dashboard = () => {
 	const [state, dispatch] = useRedux('stepper')
 	const handleOpen = () => {
-		dispatch({ type: 'OPEN' })
+		dispatch({ type: StepperAction.open })
 	}
 	return (
 		<div>
-			<PageTitle title="Dashboard" />
+			<PageTitle>Dashboard</PageTitle>
 			<EventBoard name="join" showall="/dashboard/join">
 				{TICKET.map(({ name, date, time, place, color = 'gray' }: EventTypes) => {
 					return (
@@ -45,6 +47,9 @@ const Dashboard = () => {
 			</EventBoard>
 			<EventBoard name="favourite" showall="/dashboard/favourite"></EventBoard>
 			<EventBoard name="organize" showall="/dashboard/organize">
+				<Link to="/dashboard/organize/e1">
+					<button>Event</button>
+				</Link>
 				<CreateCard handleOpen={handleOpen} />
 			</EventBoard>
 			{state.show && <Stepper />}

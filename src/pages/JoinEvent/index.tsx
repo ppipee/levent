@@ -6,7 +6,7 @@ import { JoinWrapper } from './style'
 const JoinEvent = () => {
 	return (
 		<JoinWrapper>
-			<PageTitle title="Join Event" />
+			<PageTitle>Join Event</PageTitle>
 			<EventBoard name="join">card</EventBoard>
 		</JoinWrapper>
 	)

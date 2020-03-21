@@ -8,6 +8,7 @@ import {
 	Field,
 	BorderGradient,
 	SpaceBetweenFlex,
+	CenterAbsolute,
 } from 'common/style'
 
 export const CardWrapper = styled.div`
@@ -101,9 +102,9 @@ export const CardToolsWrapper = styled.div`
 	flex-wrap: wrap;
 	padding: 14px 24px 0;
 	box-sizing: border-box;
-	max-width: 600px;
-	min-width: 375px;
-	width: 100%;
+	/* width: 100%; */
+	width: 600px;
+	/* min-width: 375px; */
 `
 export const CardToolsBorder = styled(BorderInput)`
 	height: 64px;
@@ -157,10 +158,9 @@ export const CardServicesWrapper = styled.div`
 	box-sizing: border-box;
 	padding: 16px 12px 12px;
 	border-radius: 5px;
-	border: 1px solid ${WHITE_GRAY};
+	border: 1px solid #c0c0c0;
 	text-transform: capitalize;
-	max-width: 480px;
-	width: 100%;
+	width: 480px;
 `
 export const CardServicesContainer = styled.div`
 	${CenterFlex()}

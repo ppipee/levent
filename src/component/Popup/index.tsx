@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react'
 import { Modal, Backdrop, Fade } from '@material-ui/core'
-
 import { CardPopup } from './style'
 
 interface PropTypes {

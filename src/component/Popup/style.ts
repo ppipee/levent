@@ -4,7 +4,7 @@ import { CenterAbsolute } from 'common/style'
 export const CardPopup = styled.div`
 	${CenterAbsolute}
 	position:fixed;
-	*:focus {
+	&:focus {
 		outline: none;
 	}
 `

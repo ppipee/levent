@@ -6,5 +6,6 @@ import OrganizeEvent from './OrganizeEvent'
 import JoinEvent from './JoinEvent'
 import FavouriteEvent from './FavouriteEvent'
 import Notification from './Notification'
+import OverviewEvent from './OverviewEvent'
 
-export { Home, Signin, Signup, Dashboard, OrganizeEvent, JoinEvent, FavouriteEvent, Notification }
+export { Home, Signin, Signup, Dashboard, OrganizeEvent, JoinEvent, FavouriteEvent, Notification, OverviewEvent }

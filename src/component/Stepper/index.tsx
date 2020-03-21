@@ -7,6 +7,7 @@ import FirstStep from './FirstStep'
 import SecondStep from './SecondStep'
 import ThirdStep from './ThirdStep'
 import useRedux from 'common/useRedux'
+import { StepperAction } from 'action'
 
 const Stepper = () => {
 	const [state, dispatch] = useRedux('stepper')
@@ -16,7 +17,7 @@ const Stepper = () => {
 	const [step, setStep] = useState(0)
 
 	const handleClose = () => {
-		dispatch({ type: 'CLOSE' })
+		dispatch({ type: StepperAction.close })
 	}
 	const nextStep = () => {
 		if (step < 2) setStep(step + 1)
@@ -33,6 +34,7 @@ const Stepper = () => {
 		if (step === 0) setInfo({ ...info, [key]: value })
 		else if (step === 1) {
 			const check = e.getAttribute('value') === 'true' ? true : false
+			console.log(key, !check)
 			setTools({ ...tools, [key]: !check })
 		} else if (step === 2) {
 			const role = e.getAttribute('role') as string
@@ -44,6 +46,7 @@ const Stepper = () => {
 			} else setServices({ ...services, [role]: { ...services[role], [key]: !check } })
 		}
 	}
+	console.log(tools)
 
 	const STEP = [
 		{ title: 'General Info', button: ['cancel', 'next'], component: <FirstStep info={info} setState={setState} /> },
@@ -51,7 +54,7 @@ const Stepper = () => {
 		{
 			title: 'Web Services',
 			button: ['back', 'create'],
-			component: <ThirdStep services={services} setState={setState} />,
+			component: <ThirdStep registration={tools.registration} services={services} setState={setState} />,
 		},
 	]
 	return (

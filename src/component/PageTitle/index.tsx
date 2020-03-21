@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { TitleWrapper, Line } from './style'
 
-const PageTitle = ({ title }: { title: string }) => (
+const PageTitle = ({ children }: { children: ReactNode }) => (
 	<TitleWrapper>
-		<div>{title}</div>
+		<div>{children}</div>
 		<Line />
 	</TitleWrapper>
 )

@@ -5,7 +5,7 @@ import { PageTitle } from 'component'
 const OrganizeEvent = () => {
 	return (
 		<div>
-			<PageTitle title="Organize Event" />
+			<PageTitle>Organize Event</PageTitle>
 			<EventBoard name="organize">card</EventBoard>
 		</div>
 	)
