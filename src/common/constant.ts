@@ -13,6 +13,7 @@ export const DEFAULT_INFO = {
 		postCode: '',
 	},
 	shortTeaser: '',
+	webName: '',
 }
 
 export const DEFAULT_WEB_TOOLS: IWebTools & { [key: string]: boolean } = {

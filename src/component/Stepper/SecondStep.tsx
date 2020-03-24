@@ -13,7 +13,7 @@ import CheckIcon from 'asset/icon/check.svg'
 
 interface PropTypes {
 	tools: any
-	setState: (event: MouseEvent<HTMLDivElement> & ChangeEvent<HTMLInputElement>) => void
+	setState: (event: MouseEvent<HTMLDivElement>) => void
 }
 
 const WEBTOOLS = [

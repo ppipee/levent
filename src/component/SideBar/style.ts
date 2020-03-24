@@ -16,6 +16,7 @@ export const SideBarEmpty = styled.div`
 export const ContentWrapper = styled.div`
 	${ContainerResponse}
 	flex-grow: 1;
+	position: relative;
 `
 export const Bar = styled.div`
 	${FontColor('white')}

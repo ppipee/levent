@@ -3,6 +3,7 @@ import { css } from 'styled-components'
 export const WHITE = '#F7F7F7'
 export const BLACK = '#404040'
 export const WHITE_GRAY = '#E7E7E7'
+export const SUB_COLOR = '#FA818C'
 
 export const SoftShadow = css`
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -44,9 +45,11 @@ export const ContainerResponse = css`
 export const ButtonLevent = css`
 	height: 48px;
 	font-size: 16px;
+	font-weight: medium;
 	line-height: 16px;
 	border-radius: 24px;
 	transition: all 0.3s;
+	margin: 8px;
 
 	-webkit-touch-callout: none; /* iOS Safari */
 	-webkit-user-select: none; /* Safari */
@@ -54,6 +57,7 @@ export const ButtonLevent = css`
 	-moz-user-select: none; /* Old versions of Firefox */
 	-ms-user-select: none; /* Internet Explorer/Edge */
 	user-select: none;
+	text-transform: uppercase;
 
 	&:hover {
 		cursor: pointer;
@@ -72,9 +76,10 @@ export const ButtonLevent = css`
 			: css`
 					background: white;
 					box-sizing: border-box;
-					border: 1px solid ${WHITE_GRAY};
+					border: 2.5px solid ${SUB_COLOR};
+					color: ${SUB_COLOR};
 					&:hover {
-						background: #c0c0c0;
+						background: rgba(0, 0, 0, 0.2);
 					}
 			  `}
 `

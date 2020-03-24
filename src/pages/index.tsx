@@ -7,5 +7,23 @@ import JoinEvent from './JoinEvent'
 import FavouriteEvent from './FavouriteEvent'
 import Notification from './Notification'
 import OverviewEvent from './OverviewEvent'
+import Website from './Website'
+import Service from './Service'
+import Registration from './Registration'
+import Ticket from './Ticket'
 
-export { Home, Signin, Signup, Dashboard, OrganizeEvent, JoinEvent, FavouriteEvent, Notification, OverviewEvent }
+export {
+	Home,
+	Signin,
+	Signup,
+	Dashboard,
+	OrganizeEvent,
+	JoinEvent,
+	FavouriteEvent,
+	Notification,
+	OverviewEvent,
+	Website,
+	Service,
+	Registration,
+	Ticket,
+}

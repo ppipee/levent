@@ -15,12 +15,28 @@ export const ContextProvider = ({ children }: StoreProps) => {
 	const WebTools = WebToolsReducer()
 	const WebEdit = WebEditReducer()
 
+	// const store = {
+	// 	stepper: { state: Stepper.state, dispatch: Stepper.dispatch },
+	// 	eventInfo: { state: EventInfo.state, dispatch: EventInfo.dispatch },
+	// 	webService: { state: WebService.state, dispatch: WebService.dispatch },
+	// 	webTools: { state: WebTools.state, dispatch: WebTools.dispatch },
+	// 	webEdit: { state: WebEdit.state, dispatch: WebEdit.dispatch },
+	// }
 	const store = {
-		stepper: { state: Stepper.state, dispatch: Stepper.dispatch },
-		eventInfo: { state: EventInfo.state, dispatch: EventInfo.dispatch },
-		webService: { state: WebService.state, dispatch: WebService.dispatch },
-		webTools: { state: WebTools.state, dispatch: WebTools.dispatch },
-		webEdit: { state: WebEdit.state, dispatch: WebEdit.dispatch },
+		state: {
+			stepper: Stepper.state,
+			eventInfo: EventInfo.state,
+			webService: WebService.state,
+			webTools: WebTools.state,
+			webEdit: WebEdit.state,
+		},
+		dispatch: {
+			stepper: Stepper.dispatch,
+			eventInfo: EventInfo.dispatch,
+			webService: WebService.dispatch,
+			webTools: WebTools.dispatch,
+			webEdit: WebEdit.dispatch,
+		},
 	}
 
 	return <StoreContext.Provider value={store}> {children} </StoreContext.Provider>

@@ -5,6 +5,7 @@ export const TitleWrapper = styled.div`
 	width: 100%;
 	font-size: 1.4rem;
 	margin-bottom: 20px;
+	font-weight: medium;
 	${CenterFlex()}
 `
 export const Line = styled.div`

@@ -8,8 +8,9 @@ import { EventInfoAction as Action } from 'action'
 
 const PageManagement = () => {
 	const [state, dispatch] = useRedux('eventInfo')
-	const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, type: string) => {
+	const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const value = e.target.value
+		const type = e.target.getAttribute('data-key')
 		if (type === 'name' || type === 'shortTeaser') {
 			dispatch({ type: Action.info, info: { [type]: value } })
 		}
@@ -21,7 +22,7 @@ const PageManagement = () => {
 			<div>
 				<Title>Website</Title>
 				<ContentBlock>
-					<WebBlock value="levent.com" />
+					<WebBlock value={state.webName} data-key="webName" onChange={handleChange} />
 					<IconWrapper>
 						<img src={ViewIcon} alt="view-icon" />
 					</IconWrapper>
@@ -34,7 +35,7 @@ const PageManagement = () => {
 				<Title>General Info</Title>
 				<ContentBlock>
 					<InfoTitle>{'Event Name 		:'}</InfoTitle>
-					<InputField value={state.name} onChange={e => handleChange(e, 'name')} />
+					<InputField value={state.name} data-key="name" onChange={handleChange} />
 				</ContentBlock>
 				<ContentBlock>
 					<InfoTitle>{'Location	 		:'}</InfoTitle>
@@ -50,7 +51,7 @@ const PageManagement = () => {
 				</ContentBlock>
 				<ContentBlock>
 					<InfoTitle>{'Short Teaser 		:'}</InfoTitle>
-					<InputAreaField value={state.shortTeaser} onChange={e => handleChange(e, 'shortTeaser')} rows={5} />
+					<InputAreaField value={state.shortTeaser} data-key="shortTeaser" onChange={handleChange} rows={5} />
 				</ContentBlock>
 			</div>
 		</DetailBoard>

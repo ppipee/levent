@@ -15,10 +15,19 @@ export interface IEventInfoState {
 		postCode: string
 	}
 	shortTeaser: string
+	webName: string
 }
 export interface IEventInfoAction {
 	type: string
 	info: object
+	location: {
+		place: string
+		province: string
+		district: string
+		postCode: string
+	}
+	start: object
+	end: object
 }
 
 const initialState: IEventInfoState = {
@@ -32,6 +41,19 @@ const EventInfoReducer = () => {
 				return {
 					...state,
 					...action.info,
+				}
+			case Action.location:
+				return {
+					...state,
+					location: action.location,
+				}
+			case Action.start:
+				return {
+					...state,
+				}
+			case Action.end:
+				return {
+					...state,
 				}
 			default:
 				return state

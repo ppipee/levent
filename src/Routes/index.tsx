@@ -10,6 +10,10 @@ import {
 	OrganizeEvent,
 	Notification,
 	OverviewEvent,
+	Ticket,
+	Registration,
+	Service,
+	Website,
 } from 'pages'
 import history from 'common/history'
 import { NavBar, SideBar } from 'component'
@@ -67,11 +71,15 @@ const Routes = () => {
 				<Route path="/register" component={Signup} />
 				<NavRoute exact path="/" component={Home} />
 				<SideRoute exact path="/dashboard" component={Dashboard} />
-				<SideRoute exact path="/dashboard/organize" component={OrganizeEvent} />
-				<SideRoute path="/dashboard/organize/:id" component={OverviewEvent} />
 				<SideRoute path="/dashboard/join" component={JoinEvent} />
 				<SideRoute path="/dashboard/favourite" component={FavouriteEvent} />
 				<SideRoute path="/dashboard/notice" component={Notification} />
+				<SideRoute exact path="/dashboard/organize" component={OrganizeEvent} />
+				<SideRoute exact path="/dashboard/organize/:id" component={OverviewEvent} />
+				<SideRoute path="/dashboard/organize/:id/website" component={Website} />
+				<SideRoute path="/dashboard/organize/:id/service" component={Service} />
+				<SideRoute path="/dashboard/organize/:id/registration" component={Registration} />
+				<SideRoute path="/dashboard/organize/:id/ticket" component={Ticket} />
 			</Switch>
 		</Router>
 	)

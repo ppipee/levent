@@ -1,9 +1,9 @@
 import React, { MouseEvent, ChangeEvent } from 'react'
-import { InputWrapper, InputTitle, InputField, BorderInput, BorderInfo } from './style'
+import { InputWrapper, InputTitle, InputField, BorderInput, BorderInfo, InputAreaField } from './style'
 
 interface PropTypes {
 	info: any
-	setState: (event: MouseEvent<HTMLDivElement> & ChangeEvent<HTMLInputElement>) => void
+	setState: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
 }
 
 const FirstStep = ({ info, setState }: PropTypes) => {
@@ -18,7 +18,7 @@ const FirstStep = ({ info, setState }: PropTypes) => {
 			<InputWrapper>
 				<InputTitle>Short Teaser</InputTitle>
 				<BorderInfo active={info.shortTeaser !== ''}>
-					<InputField value={info.shortTeaser} data-key="shortTeaser" onChange={setState} />
+					<InputAreaField value={info.shortTeaser} data-key="shortTeaser" onChange={setState} />
 				</BorderInfo>
 			</InputWrapper>
 		</>

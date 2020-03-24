@@ -37,7 +37,7 @@ const SERVICES: { [key: string]: any[] } = {
 interface PropTypes {
 	services: any
 	registration: boolean
-	setState: (event: MouseEvent<HTMLDivElement> & ChangeEvent<HTMLInputElement>) => void
+	setState: (event: MouseEvent<HTMLDivElement>) => void
 }
 
 const ThirdStep = ({ services, setState, registration }: PropTypes) => (

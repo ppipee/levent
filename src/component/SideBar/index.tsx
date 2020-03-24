@@ -28,6 +28,8 @@ const setting = [
 	{ route: '/logout', name: 'Log out' },
 ]
 
+const setting_event = [{ route: '/dashboard', name: 'Dashboard' }, ...setting]
+
 interface Routes {
 	route: string
 	name: string
@@ -37,9 +39,21 @@ const username = 'ppipee'
 
 const SideBar = ({ children }: { children: ReactNode }) => {
 	const current_path = history.location.pathname
+	const id = current_path.split('/')[3]
+	const routes_event = [
+		{ route: `/dashboard/organize/${id}`, name: 'Overview' },
+		{ route: `/dashboard/organize/${id}/website`, name: 'Website' },
+		{ route: `/dashboard/organize/${id}/service`, name: 'Sevice Management' },
+		{ route: `/dashboard/organize/${id}/registration`, name: 'Registration' },
+		{ route: `/dashboard/organize/${id}/ticket`, name: 'Ticket' },
+	]
 
+	const get_path =
+		current_path.split('/')[2] === 'organize' && current_path.split('/').length > 3
+			? { routes: routes_event, setting: setting_event }
+			: { routes, setting }
 	const genTab = () =>
-		routes.map((data: Routes) => {
+		get_path.routes.map((data: Routes) => {
 			const check_current = data.route === current_path
 			return (
 				<TabWrapper key={`route-${data.name}`} active={check_current ? true : false}>
@@ -60,7 +74,7 @@ const SideBar = ({ children }: { children: ReactNode }) => {
 				{genTab()}
 				<ControlWrapper>
 					<Control>
-						{setting.map(data => (
+						{get_path.setting.map(data => (
 							<Link to={data.route} key={`route-${data.name}`}>
 								<ControlContent>{data.name}</ControlContent>
 							</Link>

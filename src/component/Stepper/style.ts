@@ -8,7 +8,6 @@ import {
 	Field,
 	BorderGradient,
 	SpaceBetweenFlex,
-	CenterAbsolute,
 } from 'common/style'
 
 export const CardWrapper = styled.div`
@@ -54,8 +53,6 @@ export const ButtonContainer = styled.div`
 export const Button = styled.div`
 	${ButtonLevent}
 	width:136px;
-	text-transform: uppercase;
-	margin: 8px;
 `
 
 // First Step
@@ -68,6 +65,15 @@ export const InputTitle = styled.div`
 `
 
 export const InputField = styled.input`
+	${Field}
+	line-height: 16px;
+	box-sizing: border-box;
+	padding: 10px 12px;
+	outline: none;
+	border: none;
+	color: ${BLACK};
+`
+export const InputAreaField = styled.textarea`
 	${Field}
 	line-height: 16px;
 	box-sizing: border-box;

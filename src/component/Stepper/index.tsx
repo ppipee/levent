@@ -27,7 +27,7 @@ const Stepper = () => {
 		if (step > 0) setStep(step - 1)
 		else handleClose()
 	}
-	const setState = (event: MouseEvent<HTMLDivElement> & ChangeEvent<HTMLInputElement>) => {
+	const setState = (event: MouseEvent<HTMLDivElement> | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const e = event.target as HTMLInputElement
 		const key = e.getAttribute('data-key') as string
 		const value = e.value
