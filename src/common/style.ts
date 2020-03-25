@@ -4,6 +4,7 @@ export const WHITE = '#F7F7F7'
 export const BLACK = '#404040'
 export const WHITE_GRAY = '#E7E7E7'
 export const SUB_COLOR = '#FA818C'
+export const MAIN_COLOR = '#FA709A'
 
 export const SoftShadow = css`
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);

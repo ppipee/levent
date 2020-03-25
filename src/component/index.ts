@@ -8,5 +8,6 @@ import Report from './Report'
 import Traffic from './Traffic'
 import PageManagement from './PageManagement'
 import WebStyle from './WebStyle'
+import Search from './Search'
 
-export { SideBar, NavBar, PageTitle, EventBoard, TicketCard, Ticket, PageManagement, Traffic, Report, WebStyle }
+export { SideBar, NavBar, PageTitle, EventBoard, TicketCard, Ticket, PageManagement, Traffic, Report, WebStyle, Search }

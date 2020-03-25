@@ -44,9 +44,11 @@ const WebStyle = () => {
 			<div key={`${info.title}`}>
 				<TabHighLight select={state === info.state} />
 				<BackgroundCard select={state === info.state} data-key={info.state} onClick={toggleState}>
-					<CardWrapper select={state === info.state}>
-						<img src={info.icon} alt={`${info.state}-icon`} />
-						<div>{info.title}</div>
+					<CardWrapper>
+						<div>
+							<img src={info.icon} alt={`${info.state}-icon`} />
+							<div>{info.title}</div>
+						</div>
 					</CardWrapper>
 				</BackgroundCard>
 			</div>
@@ -64,7 +66,10 @@ const WebStyle = () => {
 		)
 	const step_container = [
 		{ title: 'select web style', component: <CardsWrapper>{genCards()}</CardsWrapper> },
-		{ title: 'select template', component: <SelectTemplate /> },
+		{
+			title: 'select template',
+			component: <SelectTemplate />,
+		},
 	]
 	return (
 		<Background>

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { CenterAbsolute, CenterFlex, SoftShadow, HardShadow, ButtonLevent } from 'common/style'
+import { CenterAbsolute, CenterFlex, SoftShadow, HardShadow, ButtonLevent, SUB_COLOR, MAIN_COLOR } from 'common/style'
 
 export const Background = styled.div`
 	position: absolute;
@@ -27,7 +27,6 @@ export const Title = styled.div`
 export const CardsWrapper = styled.div`
 	${CenterFlex()}
 	flex-wrap:wrap;
-	justify-content: space-between;
 	margin: 12px 0 24px;
 `
 
@@ -38,18 +37,20 @@ export const TabHighLight = styled.div`
 	margin: 0 auto 48px;
 	justify-content: center;
 	border-radius: 3px;
+	transition: all 1s;
 	background: ${({ select }: { select?: boolean }) =>
 		select ? 'linear-gradient(90deg, #FA709A 0%, #FEE140 100%)' : 'white'};
 `
 
 export const CardWrapper = styled.div`
-	padding: 56px 36px;
+	${CenterFlex()}
+	width:208px;
+	height: 256px;
 	pointer-events: none;
 	border-radius: 10.4px;
 	font-size: 20px;
 	text-transform: capitalize;
 	font-weight: bold;
-	/* padding: ${({ select }: { select?: boolean }) => (select ? '56px 36px' : '56px 24px')}; */
 	img {
 		display: flex;
 		margin: auto auto 24px;
@@ -61,13 +62,15 @@ export const BackgroundCard = styled.div`
 	padding: 5px;
 	position: relative;
 	border-radius: 12px;
-	transition: background 1s;
 	background: ${({ select }: { select?: boolean }) =>
-		select ? 'linear-gradient(0.25deg, #FA709A 0.18%, #FEE140 99.82%)' : 'white'};
+		select
+			? 'linear-gradient(0.25deg, #FA709A 0.18%, #FEE140 99.82%)'
+			: 'linear-gradient(109.44deg, #FFFFFF 100%)'};
 	${SoftShadow}
+	transition: all 0.3s;
 	&:hover {
 		${HardShadow}
-		top:-3px;
+		top:-6px;
 		left: -2px;
 	}
 `
@@ -79,4 +82,61 @@ export const ButtonContainer = styled.div`
 export const Button = styled.div`
 	${ButtonLevent}
 	width:144px;
+`
+
+// Select Template
+
+export const SelectWrapper = styled(CardsWrapper)`
+	width: 100%;
+	${CenterFlex('column')}
+`
+export const TemplatesContainer = styled.div`
+	max-height: 332px;
+	height: 100%;
+	margin-top: 16px;
+	padding: 8px;
+	display: grid;
+	grid-gap: 12px;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	overflow: auto;
+	&::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: ${SUB_COLOR};
+		border-radius: 50px;
+		&:hover {
+			background: ${MAIN_COLOR};
+		}
+	}
+`
+export const TemplateCard = styled.div`
+	position: relative;
+	height: 136px;
+	width: 112px;
+	border-radius: 4px;
+	background: linear-gradient(109.44deg, #fa709a 0%, #fee140 100%);
+	margin-bottom: 10px;
+	cursor: pointer;
+	transition: all 0.3s;
+	&:hover {
+		${SoftShadow}
+		top:-5px;
+		left: 2px;
+	}
+`
+export const TemplateCardWrapper = styled.div`
+	position: relative;
+	${CenterFlex('column')}
+`
+export const TemplateTitle = styled.div`
+	line-height: 14px;
+	font-size: 14px;
+	max-width: 100px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-transform: capitalize;
+	text-align: center;
 `
