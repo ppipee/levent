@@ -9,5 +9,19 @@ import Traffic from './Traffic'
 import PageManagement from './PageManagement'
 import WebStyle from './WebStyle'
 import Search from './Search'
+import DefaultTemplate from './DefaultTemplate'
 
-export { SideBar, NavBar, PageTitle, EventBoard, TicketCard, Ticket, PageManagement, Traffic, Report, WebStyle, Search }
+export {
+	SideBar,
+	NavBar,
+	PageTitle,
+	EventBoard,
+	TicketCard,
+	Ticket,
+	PageManagement,
+	Traffic,
+	Report,
+	WebStyle,
+	Search,
+	DefaultTemplate,
+}

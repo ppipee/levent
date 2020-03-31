@@ -1,11 +1,12 @@
 import React from 'react'
-import { PageTitle, WebStyle } from 'component'
+import { PageTitle, WebStyle, DefaultTemplate } from 'component'
 
 const Website = () => {
 	return (
 		<div>
 			<PageTitle>Website</PageTitle>
-			<WebStyle />
+			{/* <WebStyle /> */}
+			<DefaultTemplate />
 		</div>
 	)
 }

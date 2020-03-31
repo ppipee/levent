@@ -1,4 +1,4 @@
-import React, { MouseEvent, ChangeEvent } from 'react'
+import React, { ChangeEvent } from 'react'
 import { InputWrapper, InputTitle, InputField, BorderInput, BorderInfo, InputAreaField } from './style'
 
 interface PropTypes {
