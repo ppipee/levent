@@ -1,4 +1,4 @@
-import { IWebTools, IServices } from './type'
+import { IWebTools, IServices, IWebEdit } from './type'
 
 export const DEFAULT_INFO = {
 	name: '',
@@ -41,4 +41,8 @@ export const DEFAULT_SERVICES: IServices & PropTypes = {
 		free: false,
 		pay: false,
 	},
+}
+
+export const DEFAULT_WEB_EDIT: IWebEdit = {
+	build: true, //mockup
 }

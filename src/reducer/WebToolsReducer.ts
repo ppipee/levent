@@ -1,26 +1,17 @@
 import { useReducer } from 'react'
 import { DEFAULT_WEB_TOOLS } from 'common/constant'
+import { IWebTools } from 'common/type'
 
-export interface IWebToolsState {
-	schedule: boolean
-	registration: boolean
-	map: boolean
-	route: boolean
-	gallery: boolean
-	ticket: boolean
-	sponser: boolean
-	socialFollow: boolean
-}
 export interface IWebToolsAction {
 	type: string
 }
 
-const initialState: IWebToolsState = {
+const initialState: IWebTools = {
 	...DEFAULT_WEB_TOOLS,
 }
 
 const WebToolsReducer = () => {
-	const [state, dispatch] = useReducer((state: IWebToolsState, action: IWebToolsAction) => {
+	const [state, dispatch] = useReducer((state: IWebTools, action: IWebToolsAction) => {
 		switch (action.type) {
 			default:
 				return state

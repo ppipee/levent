@@ -1,4 +1,4 @@
-import React, { MouseEvent, ChangeEvent } from 'react'
+import React, { MouseEvent } from 'react'
 import { CardToolsWrapper, CardToolsBorder, CardToolsContent, CheckButton, CardToolsTitle, ToolIcon } from './style'
 
 import ScheduleIcon from 'asset/icon/schedule.svg'

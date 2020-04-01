@@ -12,6 +12,8 @@ import {
 } from './style'
 import TemplateIcon from 'asset/icon/template.svg'
 import SelectTemplate from './SelectTemplate'
+import useRedux from 'common/useRedux'
+import { WebEdit as Action } from 'action'
 
 const info = [
 	{ title: 'Web Template', icon: TemplateIcon, state: 'template' },
@@ -21,8 +23,9 @@ const info = [
 const BUTTON_TEXT = ['Next Step', 'Build']
 
 const WebStyle = () => {
-	const [state, setState] = useState('template')
+	const [stateStyle, setState] = useState('template')
 	const [step, setStep] = useState(0)
+	const [state, dispatch] = useRedux('webEdit')
 	const toggleState = (e: MouseEvent) => {
 		const target = e.target as HTMLDivElement
 		const key = target.getAttribute('data-key') as string
@@ -36,14 +39,15 @@ const WebStyle = () => {
 		setStep(0)
 	}
 	const buildWeb = () => {
+		dispatch({ type: Action.build })
 		console.log('build')
 	}
 
 	const genCards = () =>
 		info.map(info => (
 			<div key={`${info.title}`}>
-				<TabHighLight select={state === info.state} />
-				<BackgroundCard select={state === info.state} data-key={info.state} onClick={toggleState}>
+				<TabHighLight select={stateStyle === info.state} />
+				<BackgroundCard select={stateStyle === info.state} data-key={info.state} onClick={toggleState}>
 					<CardWrapper>
 						<div>
 							<img src={info.icon} alt={`${info.state}-icon`} />
@@ -55,7 +59,7 @@ const WebStyle = () => {
 		))
 
 	const genButton = () =>
-		state === 'customizer' ? (
+		stateStyle === 'customizer' ? (
 			<Button main onClick={buildWeb}>
 				{BUTTON_TEXT[1]}
 			</Button>

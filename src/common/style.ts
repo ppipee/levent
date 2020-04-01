@@ -7,10 +7,10 @@ export const SUB_COLOR = '#FA818C'
 export const MAIN_COLOR = '#FA709A'
 
 export const SoftShadow = css`
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 `
 export const HardShadow = css`
-	box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
 `
 
 export const FontColor = (color: string) =>
@@ -100,4 +100,9 @@ export const BorderGradient = css`
 	border-radius: 5px;
 	background: ${WHITE_GRAY};
 	height: 41.09px;
+`
+export const InputNoneStyle = css`
+	outline: none;
+	border: none;
+	background: transparent;
 `

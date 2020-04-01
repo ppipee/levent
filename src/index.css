@@ -19,6 +19,7 @@ code {
     monospace;
 }
 
-input {
+input,
+textarea {
   color: #404040;
 }

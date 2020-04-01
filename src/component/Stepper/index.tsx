@@ -38,7 +38,7 @@ const Stepper = () => {
 		const e = event.target as HTMLInputElement
 		const key = e.getAttribute('data-key') as string
 		const value = e.value
-		if (step === 0 || step == 3) setInfo({ ...info, [key]: value })
+		if (step === 0 || step === 3) setInfo({ ...info, [key]: value })
 		else if (step === 1) {
 			const check = e.getAttribute('value') === 'true' ? true : false
 			console.log(key, !check)

@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-import { InputWrapper, InputTitle, InputField, BorderInput, BorderInfo, InputAreaField } from './style'
+import { InputWrapper, InputField, BorderInput } from './style'
 
 interface PropTypes {
 	info: any

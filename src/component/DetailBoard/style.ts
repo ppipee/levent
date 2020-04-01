@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { WHITE, CenterFlex } from 'common/style'
+import { WHITE } from 'common/style'
 
 export const BoardWrapper = styled.div`
 	box-sizing: border-box;
