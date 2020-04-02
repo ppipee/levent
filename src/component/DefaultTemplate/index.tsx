@@ -18,9 +18,9 @@ const EventInfo = {
 	about:
 		'TED is the evenTED is the evenTED is the evenTED is the evenTED is the evenTED is the evenTED is the evenTED is the evenTED is the evenTED is the event',
 	schedule: [
-		{ time: '07:00', detail: 'register' },
-		{ time: '08:00', detail: 'register' },
-		{ time: '09:00', detail: 'register' },
+		{ start: '07:00', end: '08:00', detail: 'register' },
+		{ start: '08:00', end: '09:00', detail: 'register' },
+		{ start: '09:00', end: '10:00', detail: 'register' },
 	],
 }
 
