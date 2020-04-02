@@ -2,17 +2,15 @@ import React from 'react'
 import { WebToolsWrapper, WebToolsTitle } from 'common/toolsStyle'
 import { Period, DotCircle, Time, PeriodInfo, LineVertical, ScheduleWrapper } from './style'
 import { TextareaAutosize } from '@material-ui/core'
-
 interface PropTypes {
 	schedule: {
 		start: string
 		end: string
 		detail: string
 	}[]
-	end?: boolean
 }
 
-const TimeSchedule = ({ schedule, end = false }: PropTypes) => {
+const TimeSchedule = ({ schedule }: PropTypes) => {
 	return (
 		<WebToolsWrapper>
 			<WebToolsTitle>TimeSchedule</WebToolsTitle>

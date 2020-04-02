@@ -1,7 +1,6 @@
 import React from 'react'
-import { WebToolsWrapper, WebToolsTitle, WebToolsInput } from 'common/toolsStyle'
+import { WebToolsWrapper, WebToolsTitle, WebToolsInput, WebToolsTextArea } from 'common/toolsStyle'
 import { IInputTypes } from 'common/type'
-import { AboutInput } from './style'
 import { TextareaAutosize } from '@material-ui/core'
 
 const About = ({ title = 'About', value, onChange, readOnly = false }: IInputTypes & { title?: string | number }) => {
@@ -10,9 +9,9 @@ const About = ({ title = 'About', value, onChange, readOnly = false }: IInputTyp
 			<WebToolsTitle>
 				<WebToolsInput data-key="about-title" value={title} onChange={onChange} readOnly={readOnly} />
 			</WebToolsTitle>
-			<AboutInput>
+			<WebToolsTextArea>
 				<TextareaAutosize data-key="about-text" value={value} onChange={onChange} readOnly={readOnly} />
-			</AboutInput>
+			</WebToolsTextArea>
 		</WebToolsWrapper>
 	)
 }

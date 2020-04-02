@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { InputNoneStyle } from './style'
 
 export const WebToolsWrapper = styled.div`
@@ -17,4 +17,16 @@ export const WebToolsInput = styled.input`
 	${InputNoneStyle}
 	font-size:inherit;
 	line-height: inherit;
+	width: inherit;
+`
+
+export const WebToolsTextArea = styled.div`
+	width: inherit;
+	textarea {
+		${InputNoneStyle}
+		text-indent:32px;
+		width: 100%;
+		font-size: 16px;
+		resize: none;
+	}
 `

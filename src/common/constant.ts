@@ -2,8 +2,8 @@ import { IWebTools, IServices, IWebEdit } from './type'
 
 export const DEFAULT_INFO = {
 	name: '',
-	startDate: '',
-	startTime: '',
+	startDate: '', //YYYY-MM-DD
+	startTime: '', //HH:mm
 	endDate: '',
 	endTime: '',
 	location: {
