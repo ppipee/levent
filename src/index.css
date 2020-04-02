@@ -21,5 +21,7 @@ code {
 
 input,
 textarea {
+  font-family: 'Lexend+Deca',
+    sans-serif;
   color: #404040;
 }
