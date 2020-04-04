@@ -10,10 +10,12 @@ import PageManagement from './PageManagement'
 import WebStyle from './WebStyle'
 import Search from './Search'
 import DefaultTemplate from './DefaultTemplate'
+import NavBarEvent from './NavBarEvent'
 
 export {
 	SideBar,
 	NavBar,
+	NavBarEvent,
 	PageTitle,
 	EventBoard,
 	TicketCard,

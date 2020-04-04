@@ -7,7 +7,6 @@ const Website = () => {
 	const [state, dispatch] = useRedux('webEdit')
 	return (
 		<div>
-			<PageTitle>Website</PageTitle>
 			{!state.build && <WebStyle />}
 			{state.build && <DefaultTemplate />}
 		</div>

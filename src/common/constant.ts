@@ -44,5 +44,5 @@ export const DEFAULT_SERVICES: IServices & PropTypes = {
 }
 
 export const DEFAULT_WEB_EDIT: IWebEdit = {
-	build: true, //mockup
+	build: true, //default is false
 }

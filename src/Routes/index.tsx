@@ -16,7 +16,7 @@ import {
 	Website,
 } from 'pages'
 import history from 'common/history'
-import { NavBar, SideBar } from 'component'
+import { NavBar, SideBar, NavBarEvent } from 'component'
 
 const NavRoute = ({ exact, path, component: Component }: { exact?: boolean; path: string; component: any }) => (
 	<Route
@@ -76,7 +76,16 @@ const Routes = () => {
 				<SideRoute path="/dashboard/notice" component={Notification} />
 				<SideRoute exact path="/dashboard/organize" component={OrganizeEvent} />
 				<SideRoute exact path="/dashboard/organize/:id" component={OverviewEvent} />
-				<SideRoute path="/dashboard/organize/:id/website" component={Website} />
+				{/* <SideRoute path="/dashboard/organize/:id/website" component={Website} /> */}
+				<Route
+					exact
+					path="/dashboard/organize/:id/website"
+					render={() => (
+						<NavBarEvent>
+							<Website />
+						</NavBarEvent>
+					)}
+				/>
 				<SideRoute path="/dashboard/organize/:id/service" component={Service} />
 				<SideRoute path="/dashboard/organize/:id/registration" component={Registration} />
 				<SideRoute path="/dashboard/organize/:id/ticket" component={Ticket} />

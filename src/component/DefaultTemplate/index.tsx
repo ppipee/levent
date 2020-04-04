@@ -12,11 +12,11 @@ import {
 	Ticket,
 	TimeSchedule,
 } from 'component/WebTools'
+import { ContainerResponse } from './style'
 
 const EventInfo = {
 	eventName: 'TedXKasetsart',
-	about:
-		'TED is the evenTED is the evenTED is the evenTED is the evenTED is the evenTED is the evenTED is the evenTED is the evenTED is the evenTED is the event',
+	about: 'TED is the event as Kasetsart University',
 	schedule: [
 		{ start: '07:00', end: '08:00', detail: 'register' },
 		{ start: '08:00', end: '09:00', detail: 'register' },
@@ -53,7 +53,7 @@ const DefaultTemplate = () => {
 		console.log('click')
 	}
 	return (
-		<div>
+		<ContainerResponse>
 			<EventName value={EventInfo.eventName} onChange={handleChange} />
 			<About value={EventInfo.about} onChange={handleChange} />
 			<TimeSchedule schedule={EventInfo.schedule} />
@@ -64,8 +64,9 @@ const DefaultTemplate = () => {
 				location={EventInfo.location}
 			/>
 			<SocialFollow social={EventInfo.social} />
+			<Gallery />
 			<Registration onClick={handleClick} />
-		</div>
+		</ContainerResponse>
 	)
 }
 export default DefaultTemplate

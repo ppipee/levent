@@ -1,7 +1,7 @@
 import React from 'react'
-import AccountCircle from '@material-ui/icons/AccountCircle'
-import { Bar, Title, SubTitle, Button, SvgCustom, EmptyBox } from './style'
+import { Bar, Title, SubTitle, Button, EmptyBox, ImgIcon } from './style'
 import { Link } from 'react-router-dom'
+import AccountIcon from 'asset/icon/nav/account.svg'
 
 const NavBar = ({ children }: any) => {
 	return (
@@ -13,13 +13,11 @@ const NavBar = ({ children }: any) => {
 						<Button>Levent</Button>
 					</Link>
 				</Title>
-				<SubTitle>
+				<SubTitle fontStyle={false}>
 					<Link to="/dashboard">
 						<Button>
+							<ImgIcon src={AccountIcon} alt="menu-account" />
 							<div>ppipee</div>
-							<SvgCustom>
-								<AccountCircle />
-							</SvgCustom>
 						</Button>
 					</Link>
 				</SubTitle>
