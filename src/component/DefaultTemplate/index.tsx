@@ -15,7 +15,7 @@ import {
 import { ContainerResponse } from './style'
 
 const EventInfo = {
-	eventName: 'TedXKasetsart',
+	eventName: 'TredXKesatsert',
 	about: 'TED is the event as Kasetsart University',
 	schedule: [
 		{ start: '07:00', end: '08:00', detail: 'register' },

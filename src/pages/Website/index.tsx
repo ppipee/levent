@@ -1,14 +1,15 @@
 import React from 'react'
-import { PageTitle, WebStyle, DefaultTemplate } from 'component'
+import { PageTitle, WebStyle, DefaultTemplate, ToolsBar } from 'component'
 import { WebEdit as Action } from 'action'
 import useRedux from 'common/useRedux'
 
 const Website = () => {
 	const [state, dispatch] = useRedux('webEdit')
+	if (!state.build) return <WebStyle />
 	return (
 		<div>
-			{!state.build && <WebStyle />}
-			{state.build && <DefaultTemplate />}
+			<ToolsBar />
+			<DefaultTemplate />
 		</div>
 	)
 }

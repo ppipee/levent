@@ -11,6 +11,7 @@ import WebStyle from './WebStyle'
 import Search from './Search'
 import DefaultTemplate from './DefaultTemplate'
 import NavBarEvent from './NavBarEvent'
+import ToolsBar from './ToolsBar'
 
 export {
 	SideBar,
@@ -26,4 +27,5 @@ export {
 	WebStyle,
 	Search,
 	DefaultTemplate,
+	ToolsBar,
 }

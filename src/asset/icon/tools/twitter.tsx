@@ -3,7 +3,7 @@ import React from 'react'
 const TwitterIcon = ({ color = '#55ACEE' }: { color?: string }) => {
 	return (
 		<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<g clip-path="url(#clip0)">
+			<g clipPath="url(#clip0)">
 				<path
 					d="M28.0007 55.9995C43.4646 55.9995 56.0005 43.4636 56.0005 27.9998C56.0005 12.5359 43.4646 0 28.0007 0C12.5369 0 0.000976562 12.5359 0.000976562 27.9998C0.000976562 43.4636 12.5369 55.9995 28.0007 55.9995Z"
 					fill={color}

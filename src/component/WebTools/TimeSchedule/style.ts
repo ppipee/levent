@@ -13,8 +13,9 @@ export const DotCircle = styled.div`
 		border-radius: 50%;
 		width: 12px;
 		height: 12px;
-		top: 4.2px;
-		left: 4.4px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		background: white;
 	}
 `
@@ -23,10 +24,10 @@ export const ScheduleWrapper = styled.div`
 	width: 560px;
 `
 export const LineVertical = styled.div`
-	margin-left: 8px;
+	margin-left: 9px;
 	position: absolute;
 	height: 100%;
-	width: 8px;
+	width: 6px;
 	border-radius: 8px;
 	left: 6.4px;
 	background: ${MAIN_COLOR};
