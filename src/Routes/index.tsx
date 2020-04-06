@@ -14,6 +14,7 @@ import {
 	Registration,
 	Service,
 	Website,
+	WebTools,
 } from 'pages'
 import history from 'common/history'
 import { NavBar, SideBar, NavBarEvent } from 'component'
@@ -54,7 +55,8 @@ const path = [
 	'/dashboard/organize',
 	'/dashboard/organize/:id',
 	'/dashboard/organize/:id/website',
-	'/dashboard/organize/:id/service',
+	'/dashboard/organize/:id/tools',
+	'/dashboard/organize/:id/services',
 	'/dashboard/organize/:id/registration',
 	'/dashboard/organize/:id/ticket',
 ]
@@ -76,7 +78,6 @@ const Routes = () => {
 				<SideRoute path="/dashboard/notice" component={Notification} />
 				<SideRoute exact path="/dashboard/organize" component={OrganizeEvent} />
 				<SideRoute exact path="/dashboard/organize/:id" component={OverviewEvent} />
-				{/* <SideRoute path="/dashboard/organize/:id/website" component={Website} /> */}
 				<Route
 					exact
 					path="/dashboard/organize/:id/website"
@@ -86,7 +87,8 @@ const Routes = () => {
 						</NavBarEvent>
 					)}
 				/>
-				<SideRoute path="/dashboard/organize/:id/service" component={Service} />
+				<SideRoute path="/dashboard/organize/:id/tools" component={WebTools} />
+				<SideRoute path="/dashboard/organize/:id/services" component={Service} />
 				<SideRoute path="/dashboard/organize/:id/registration" component={Registration} />
 				<SideRoute path="/dashboard/organize/:id/ticket" component={Ticket} />
 			</Switch>

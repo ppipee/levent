@@ -12,7 +12,6 @@ import {
 	Ticket,
 	TimeSchedule,
 } from 'component/WebTools'
-import { ContainerResponse } from './style'
 
 const EventInfo = {
 	eventName: 'TredXKesatsert',
@@ -53,7 +52,7 @@ const DefaultTemplate = () => {
 		console.log('click')
 	}
 	return (
-		<ContainerResponse>
+		<div>
 			<EventName value={EventInfo.eventName} onChange={handleChange} />
 			<About value={EventInfo.about} onChange={handleChange} />
 			<TimeSchedule schedule={EventInfo.schedule} />
@@ -66,7 +65,7 @@ const DefaultTemplate = () => {
 			<SocialFollow social={EventInfo.social} />
 			<Gallery />
 			<Registration onClick={handleClick} />
-		</ContainerResponse>
+		</div>
 	)
 }
 export default DefaultTemplate

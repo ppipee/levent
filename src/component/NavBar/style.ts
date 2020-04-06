@@ -39,9 +39,10 @@ export const Button = styled.div`
 	padding: 5px 8px;
 	/* margin: 8px 2.5px; */
 	cursor: pointer;
+	transition: all 0.2s;
 	&:hover {
 		border-radius: 5px;
-		background: rgba(247, 247, 247, 0.2);
+		background: rgba(247, 247, 247, 0.25);
 	}
 `
 export const SvgCustom = styled.svg`

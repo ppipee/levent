@@ -43,7 +43,8 @@ const SideBar = ({ children }: { children: ReactNode }) => {
 	const routes_event = [
 		{ route: `/dashboard/organize/${id}`, name: 'Overview' },
 		{ route: `/dashboard/organize/${id}/website`, name: 'Website' },
-		{ route: `/dashboard/organize/${id}/service`, name: 'Sevice Management' },
+		{ route: `/dashboard/organize/${id}/tools`, name: 'Tools' },
+		{ route: `/dashboard/organize/${id}/services`, name: 'Service Management' },
 		{ route: `/dashboard/organize/${id}/registration`, name: 'Registration' },
 		{ route: `/dashboard/organize/${id}/ticket`, name: 'Ticket' },
 	]

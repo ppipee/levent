@@ -1,12 +1,12 @@
 import React from 'react'
 import { PageTitle, Traffic, PageManagement, Ticket, Report } from 'component'
-import { ContainnerWrapper, Main, SubContent } from './style'
+import { ContainerWrapper, Main, SubContent } from './style'
 
 const OverviewEvent = () => {
 	return (
 		<div>
 			<PageTitle>Overview</PageTitle>
-			<ContainnerWrapper>
+			<ContainerWrapper>
 				<Main>
 					<PageManagement />
 					<Traffic />
@@ -15,7 +15,7 @@ const OverviewEvent = () => {
 					<Report />
 					<Ticket />
 				</SubContent>
-			</ContainnerWrapper>
+			</ContainerWrapper>
 		</div>
 	)
 }

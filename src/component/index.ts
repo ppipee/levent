@@ -12,6 +12,7 @@ import Search from './Search'
 import DefaultTemplate from './DefaultTemplate'
 import NavBarEvent from './NavBarEvent'
 import ToolsBar from './ToolsBar'
+import ToolConfig from './ToolConfig'
 
 export {
 	SideBar,
@@ -28,4 +29,5 @@ export {
 	Search,
 	DefaultTemplate,
 	ToolsBar,
+	ToolConfig,
 }

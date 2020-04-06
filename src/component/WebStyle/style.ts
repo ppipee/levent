@@ -1,12 +1,10 @@
 import styled from 'styled-components'
 import { CenterAbsolute, CenterFlex, SoftShadow, HardShadow, ButtonLevent, SUB_COLOR, MAIN_COLOR } from 'common/style'
 
-const WIDTH_SIDEBAR = '0px'
-
 export const Background = styled.div`
 	position: absolute;
 	background: white;
-	width: calc(100vw - WIDTH_SIDEBAR);
+	width: 100vw;
 	top: 0;
 	left: 0;
 	right: 0;

@@ -8,6 +8,7 @@ import FavouriteEvent from './FavouriteEvent'
 import Notification from './Notification'
 import OverviewEvent from './OverviewEvent'
 import Website from './Website'
+import WebTools from './WebTools'
 import Service from './Service'
 import Registration from './Registration'
 import Ticket from './Ticket'
@@ -23,6 +24,7 @@ export {
 	Notification,
 	OverviewEvent,
 	Website,
+	WebTools,
 	Service,
 	Registration,
 	Ticket,

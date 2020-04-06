@@ -30,3 +30,6 @@ export const WebToolsTextArea = styled.div`
 		resize: none;
 	}
 `
+export const WebToolsIndent = styled(WebToolsWrapper)`
+	padding: 0 24px;
+`

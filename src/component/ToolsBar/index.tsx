@@ -1,10 +1,12 @@
 import React, { useState, MouseEvent } from 'react'
-import TextIcon from 'asset/icon/tools/text.svg'
 import { PositionWrapper, BarWrapper, ToolWrapper, ArrowUp, ArrowDown, ToolsContainer, ToolImg } from './style'
 import ArrowIcon from 'asset/icon/arrow.svg'
+import { ToolsType } from 'common/type'
+import Tools from './tools'
+
 const ToolsState: { [key: string]: boolean } = {
-	mouse: false,
-	text: true,
+	cursor: true,
+	text: false,
 	button: false,
 	image: false,
 	video: false,
@@ -17,32 +19,18 @@ const ToolsState: { [key: string]: boolean } = {
 	sponser: false,
 	ticket: false,
 }
-const Tools = [
-	{
-		icon: TextIcon,
-		tip: 'Text',
-		key: 'text',
-	},
-	{
-		icon: TextIcon,
-		tip: 'Text',
-		key: 'button',
-	},
-	{
-		icon: TextIcon,
-		tip: 'Text',
-		key: 'image',
-	},
-]
 
-const ToolsBar = () => {
+interface PropTypes {
+	selectTool: (tool: ToolsType) => void
+}
+
+const ToolsBar = ({ selectTool }: PropTypes) => {
 	const [tools_state, setTool] = useState(ToolsState)
 	const handleChange = (e: MouseEvent<HTMLDivElement>) => {
 		const target = e.target as HTMLInputElement
-		const key = target.getAttribute('data-key') as string
-		setTool({ ...ToolsState, text: false, [key]: true }) //selected tool
-
-		// do something
+		const key = target.getAttribute('data-key') as ToolsType
+		setTool({ ...ToolsState, cursor: false, [key]: true }) //selected tool
+		selectTool(key)
 	}
 
 	return (

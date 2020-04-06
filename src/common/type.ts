@@ -51,7 +51,21 @@ export interface IServices {
 		pay: boolean
 	}
 }
-
+export type ToolsType =
+	| 'cursor'
+	| 'text'
+	| 'button'
+	| 'image'
+	| 'video'
+	| 'schdule'
+	| 'gallery'
+	| 'map'
+	| 'route'
+	| 'registration'
+	| 'social'
+	| 'sponser'
+	| 'ticket'
 export interface IWebEdit {
 	build: boolean
+	selectedTool: ToolsType
 }

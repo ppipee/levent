@@ -1,13 +1,14 @@
 import { useReducer } from 'react'
 import { WebEdit as Action } from 'action'
-import { IWebEdit } from 'common/type'
+import { IWebEdit, ToolsType } from 'common/type'
 import { DEFAULT_WEB_EDIT } from 'common/constant'
 
 export interface IWebEditAction {
 	type: string
+	select: ToolsType
 }
 
-const initialState: IWebEdit = {
+export const initialState: IWebEdit = {
 	...DEFAULT_WEB_EDIT,
 }
 
@@ -18,6 +19,11 @@ const WebEditReducer = () => {
 				return {
 					...state,
 					build: true,
+				}
+			case Action.select:
+				return {
+					...state,
+					selectedTool: action.select,
 				}
 			default:
 				return state
