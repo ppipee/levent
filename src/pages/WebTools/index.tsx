@@ -1,10 +1,11 @@
 import React from 'react'
-import { PageTitle } from 'component'
+import { PageTitle, WindowTabs } from 'component'
 
 const WebTools = () => {
 	return (
 		<div>
-			<PageTitle>WebTools</PageTitle>
+			<PageTitle>Tools</PageTitle>
+			<WindowTabs />
 		</div>
 	)
 }

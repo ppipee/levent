@@ -62,7 +62,7 @@ const NavBarEvent = ({ children }: any) => {
 			<Bar>
 				<MenuWrapper>
 					{MenuLeft.map(menu => (
-						<SubTitle key={`menu-bar-${menu.text}`}>
+						<SubTitle key={`menu-bar-${menu.text}`} fontStyle>
 							<Button onClick={menu.function}>
 								<ImgIcon src={menu.icon} alt={`menu-${menu.text}`} />
 								<div>{menu.text}</div>

@@ -35,14 +35,15 @@ export const TabWrapper = styled.div`
 	width: inherit;
 	height: 56px;
 	${CenterFlex()}
-
+	background-color: transparent;
+	transition: ease-in 0.1s;
 	&:hover {
 		${({ active }: PropsType) =>
 			active
 				? ''
 				: css`
 						cursor: pointer;
-						background-color: rgba(247, 247, 247, 0.4);
+						background-color: rgba(0, 0, 0, 0.4);
 				  `}
 	}
 `
@@ -53,6 +54,7 @@ export const Tab = styled.div`
 	height: inherit;
 	pointer-events: none;
 	${CenterFlex()}
+	/* transition: all 0.2s; */
 	text-transform: capitalize;
 	${({ active }: PropsType) =>
 		!active

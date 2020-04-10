@@ -13,7 +13,7 @@ const NavBar = ({ children }: any) => {
 						<Button>Levent</Button>
 					</Link>
 				</Title>
-				<SubTitle fontStyle={false}>
+				<SubTitle>
 					<Link to="/dashboard">
 						<Button>
 							<ImgIcon src={AccountIcon} alt="menu-account" />

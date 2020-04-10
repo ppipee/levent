@@ -12,7 +12,7 @@ export const Title = styled.div`
 export const SubTitle = styled(Title)`
 	font-size: 18px;
 	line-height: 18px;
-	text-transform: ${({ fontStyle }: { fontStyle?: boolean }) => (fontStyle ? 'capitalize;' : 'none')};
+	text-transform: ${({ fontStyle = false }: { fontStyle?: boolean }) => (fontStyle ? 'capitalize;' : 'none')};
 `
 
 export const MenuWrapper = styled.div`

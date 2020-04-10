@@ -1,11 +1,11 @@
 import React from 'react'
-import CreateIcon from 'asset/icon/add.svg'
+import AddIcon from 'asset/icon/add'
 import { CardWrapper, CreateCardWrapper } from './style'
 
 const CreateCard = ({ handleOpen }: { handleOpen: () => void }) => (
 	<CardWrapper onClick={handleOpen}>
 		<CreateCardWrapper>
-			<img src={CreateIcon} alt="add-icon" />
+			<AddIcon />
 		</CreateCardWrapper>
 	</CardWrapper>
 )

@@ -13,6 +13,8 @@ import DefaultTemplate from './DefaultTemplate'
 import NavBarEvent from './NavBarEvent'
 import ToolsBar from './ToolsBar'
 import ToolConfig from './ToolConfig'
+import WindowTabs from './WindowTabs'
+import * as ToolsDetail from './ToolsDetail'
 
 export {
 	SideBar,
@@ -30,4 +32,6 @@ export {
 	DefaultTemplate,
 	ToolsBar,
 	ToolConfig,
+	WindowTabs,
+	ToolsDetail,
 }

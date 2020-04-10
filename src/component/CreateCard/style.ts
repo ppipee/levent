@@ -15,7 +15,7 @@ export const CreateCardWrapper = styled.div`
 	border-radius: 10px;
 	background: rgba(192, 192, 192, 0.7);
 	${CenterFlex()}
-	img {
+	svg {
 		display: flex;
 	}
 	&:hover {

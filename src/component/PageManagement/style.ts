@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { WHITE } from 'common/style'
+import styled, { css } from 'styled-components'
+import { WHITE, InputNoneStyle, BLACK } from 'common/style'
 
 export const ContentWrapper = styled.div`
 	padding: 12px 8px 8px;
@@ -29,27 +29,48 @@ export const ContentBlock = styled.div`
 export const Title = styled.div`
 	font-size: 18px;
 	line-height: 18px;
-	margin-bottom: 8px;
+	padding: 4px 0 12px 0;
 	text-transform: capitalize;
 `
 
 export const InfoTitle = styled.div`
 	white-space: pre;
 	margin-right: 8px;
+	${({ start }: { start?: boolean }) =>
+		start
+			? css`
+					margin: 6px 8px 0 0;
+					align-self: flex-start;
+			  `
+			: ''}
 `
 export const InputField = styled.input`
 	border-radius: 2px;
-	outline: none;
-	padding: 8px;
+	padding: 4px;
 	line-height: 16px;
+	font-size:16px;
 	width: 100%;
-	background-color: ${WHITE};
+	${InputNoneStyle}
+	color: ${WHITE};
+	border:1.5px inset transparent;
+	&:focus {
+		border:1.5px inset #c6c6c6;
+		color: ${BLACK};
+		background-color: ${WHITE};
+	}
 `
 export const InputAreaField = styled.textarea`
 	border-radius: 2px;
-	outline: none;
 	padding: 8px;
 	line-height: 16px;
 	width: 100%;
-	background-color: ${WHITE};
+	transition: ease-in all 0.2s;
+	${InputNoneStyle}
+	resize: none;
+	color: ${WHITE};
+	&:focus {
+		border: 1.5px inset #c6c6c6;
+		color: ${BLACK};
+		background-color: ${WHITE};
+	}
 `

@@ -12,6 +12,9 @@ export const SoftShadow = css`
 export const HardShadow = css`
 	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
 `
+export const HeavyShadow = css`
+	box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.3);
+`
 
 export const FontColor = (color: string) =>
 	css`

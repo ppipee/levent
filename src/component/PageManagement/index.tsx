@@ -50,7 +50,7 @@ const PageManagement = () => {
 					<InputField />
 				</ContentBlock>
 				<ContentBlock>
-					<InfoTitle>{'Short Teaser 		:'}</InfoTitle>
+					<InfoTitle start>{'Short Teaser 		:'}</InfoTitle>
 					<InputAreaField value={state.shortTeaser} data-key="shortTeaser" onChange={handleChange} rows={5} />
 				</ContentBlock>
 			</div>
