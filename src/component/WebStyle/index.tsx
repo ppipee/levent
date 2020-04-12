@@ -13,7 +13,7 @@ import {
 import TemplateIcon from 'asset/icon/template.svg'
 import SelectTemplate from './SelectTemplate'
 import useRedux from 'common/useRedux'
-import { WebEdit as Action } from 'action'
+import { WebEditAction as Action } from 'action'
 
 const info = [
 	{ title: 'Web Template', icon: TemplateIcon, state: 'template' },

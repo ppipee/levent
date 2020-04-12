@@ -15,6 +15,7 @@ import ToolsBar from './ToolsBar'
 import ToolConfig from './ToolConfig'
 import WindowTabs from './WindowTabs'
 import * as ToolsDetail from './ToolsDetail'
+import Add from './AddTool'
 
 export {
 	SideBar,
@@ -34,4 +35,5 @@ export {
 	ToolConfig,
 	WindowTabs,
 	ToolsDetail,
+	Add,
 }

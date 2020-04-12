@@ -1,10 +1,31 @@
-import React, { createContext, ReactNode } from 'react'
+import React, { createContext, ReactNode, Dispatch } from 'react'
 import { StepperReducer, EventInfoReducer, WebServicesReducer, WebToolsReducer, WebEditReducer } from 'reducer'
-
+import { IStepperState, IStepperAction } from 'reducer/StepperReducer'
+import { IEventInfo, IWebTools, IWebEdit } from 'common/type'
+import { IWebServicesState, IWebServicesAction } from 'reducer/WebServicesReducer'
+import { IWebEditAction } from 'reducer/WebEditReducer'
+import { IWebToolsAction, IWebToolState } from 'reducer/WebToolsReducer'
+import { IEventInfoAction } from 'reducer/EventInfoReducer'
 export const StoreContext = createContext({} as any)
 
 interface StoreProps {
 	children: ReactNode
+}
+
+export interface StoreState {
+	stepper: IStepperState
+	eventInfo: IEventInfo
+	webService: IWebServicesState
+	webTools: IWebToolState
+	webEdit: IWebEdit
+}
+
+export interface ActionState {
+	stepper: Dispatch<IStepperAction>
+	eventInfo: Dispatch<IEventInfoAction>
+	webService: Dispatch<IWebServicesAction>
+	webTools: Dispatch<IWebToolsAction>
+	webEdit: Dispatch<IWebEditAction>
 }
 
 export const ContextProvider = ({ children }: StoreProps) => {
@@ -22,7 +43,7 @@ export const ContextProvider = ({ children }: StoreProps) => {
 	// 	webTools: { state: WebTools.state, dispatch: WebTools.dispatch },
 	// 	webEdit: { state: WebEdit.state, dispatch: WebEdit.dispatch },
 	// }
-	const store = {
+	const store: { state: StoreState; dispatch: ActionState } = {
 		state: {
 			stepper: Stepper.state,
 			eventInfo: EventInfo.state,

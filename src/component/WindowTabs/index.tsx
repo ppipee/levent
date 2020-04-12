@@ -1,13 +1,44 @@
-import React, { useState, MouseEvent } from 'react'
-import { TabsContainer, Tab, ItemsContainer, AddTool, WindowContainer, ControlWrapper } from './style'
-import { Line, Title } from 'component/DetailBoard/style'
-import AddIcon from 'asset/icon/add'
+import React, { useState, MouseEvent, Dispatch } from 'react'
+import { TabsContainer, Tab, ItemsContainer, WindowContainer, ControlWrapper } from './style'
 import { ScheduleDetail, GalleryDetail, SocialDetail } from 'component/ToolsDetail'
 import { SCHEDULE, GALLERY } from 'common/mockapi'
+import { Add } from 'component'
+import { IWebToolState, IWebToolsAction } from 'reducer/WebToolsReducer'
 
 const TABS = ['Schedule', 'Gallery', 'Social', 'Sponser']
-const WindowTabs = () => {
+
+interface PropTypes {
+	tools: IWebToolState
+	setTools: Dispatch<IWebToolsAction>
+}
+
+const WindowTabs = ({ tools, setTools }: PropTypes) => {
 	const [tab, setTab] = useState(0)
+	const TOOLS = [
+		{
+			select: 'Schedule',
+			component: () =>
+				SCHEDULE.map((schedule, index) => (
+					<ScheduleDetail key={`${schedule.title}-${index}`} getSchedule={schedule} />
+				)),
+		},
+		{
+			select: 'Gallery',
+			component: () =>
+				GALLERY.map((gallery, index) => (
+					<GalleryDetail getGallery={gallery} key={`${gallery.title}-${index}`} />
+				)),
+		},
+		{
+			select: 'Social',
+			component: () => <SocialDetail />,
+		},
+		{
+			select: 'Sponser',
+			component: () => <div></div>,
+		},
+	]
+
 	const handleChage = (e: MouseEvent<HTMLDivElement>) => {
 		const target = e.target as HTMLInputElement
 		const index = target.getAttribute('data-index') as string
@@ -17,26 +48,15 @@ const WindowTabs = () => {
 		<WindowContainer>
 			<ControlWrapper>
 				<TabsContainer>
-					{TABS.map((data, index) => (
-						<Tab data-index={index} onClick={handleChage} key={`tab-${data}`} active={index === tab}>
-							{data}
+					{TOOLS.map(({ select }, index) => (
+						<Tab data-index={index} onClick={handleChage} key={`tab-${select}`} active={index === tab}>
+							{select}
 						</Tab>
 					))}
 				</TabsContainer>
-				<AddTool>
-					<AddIcon size="14" />
-					TOOL
-				</AddTool>
+				<Add />
 			</ControlWrapper>
-			<ItemsContainer>
-				{/* {SCHEDULE.map((schedule, index) => (
-					<ScheduleDetail key={`${schedule.title}-${index}`} getSchedule={schedule} />
-				))} */}
-				{/* {GALLERY.map((gallery, index) => (
-					<GalleryDetail getGallery={gallery} key={`${gallery.title}-${index}`} />
-				))} */}
-				<SocialDetail />
-			</ItemsContainer>
+			<ItemsContainer>{TOOLS[tab].component()}</ItemsContainer>
 		</WindowContainer>
 	)
 }

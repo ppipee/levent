@@ -46,7 +46,7 @@ const PageManagement = () => {
 					<InputField />
 				</ContentBlock>
 				<ContentBlock>
-					<InfoTitle>{'End Date 		:'}</InfoTitle>
+					<InfoTitle>{'End Date	 		:'}</InfoTitle>
 					<InputField />
 				</ContentBlock>
 				<ContentBlock>

@@ -8,7 +8,13 @@ const EventName = ({ value, onChange, readOnly = false }: IInputTypes) => {
 	return (
 		<WebToolsWrapper>
 			<EventTitle>
-				<TextareaAutosize value={value} onChange={onChange} readOnly={readOnly} />
+				<TextareaAutosize
+					placeholder="Enter event name"
+					value={value}
+					onChange={onChange}
+					readOnly={readOnly}
+					data-key="name"
+				/>
 			</EventTitle>
 		</WebToolsWrapper>
 	)

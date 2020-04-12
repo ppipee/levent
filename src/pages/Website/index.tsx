@@ -1,6 +1,6 @@
 import React, { Dispatch } from 'react'
 import { PageTitle, WebStyle, DefaultTemplate, ToolsBar, ToolConfig } from 'component'
-import { WebEdit as Action } from 'action'
+import { WebEditAction as Action } from 'action'
 import useRedux from 'common/useRedux'
 import { ContainerResponse, ContainerWrapper, WebContainer, EmptyBox } from './style'
 import { ToolsType, IWebEdit } from 'common/type'

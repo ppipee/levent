@@ -10,7 +10,13 @@ const About = ({ title = 'About', value, onChange, readOnly = false }: IInputTyp
 				<WebToolsInput data-key="about-title" value={title} onChange={onChange} readOnly={readOnly} />
 			</WebToolsTitle>
 			<WebToolsTextArea>
-				<TextareaAutosize data-key="about-text" value={value} onChange={onChange} readOnly={readOnly} />
+				<TextareaAutosize
+					placeholder="Enter event detail"
+					data-key="shortTeaser"
+					value={value}
+					onChange={onChange}
+					readOnly={readOnly}
+				/>
 			</WebToolsTextArea>
 		</WebToolsWrapper>
 	)

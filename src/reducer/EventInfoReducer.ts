@@ -7,17 +7,17 @@ const initialState: IEventInfo = {
 	...DEFAULT_INFO,
 }
 
-interface IEventInfoAction {
+export interface IEventInfoAction {
 	type: string
-	info: object
-	location: {
+	info?: object
+	location?: {
 		place: string
 		province: string
 		district: string
 		postCode: string
 	}
-	start: object
-	end: object
+	start?: object
+	end?: object
 }
 
 const EventInfoReducer = () => {
@@ -31,7 +31,12 @@ const EventInfoReducer = () => {
 			case Action.location:
 				return {
 					...state,
-					location: action.location,
+					location: action.location as {
+						place: string
+						province: string
+						district: string
+						postCode: string
+					},
 				}
 			case Action.start:
 				return {

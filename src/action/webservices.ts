@@ -1,2 +1,2 @@
-const WebServices = {}
-export default WebServices
+const WebServicesAction = {}
+export default WebServicesAction

@@ -8,11 +8,12 @@ import SecondStep from './SecondStep'
 import ThirdStep from './ThirdStep'
 import ForthStep from './ForthStep'
 import useRedux from 'common/useRedux'
-import { StepperAction, EventInfoAction } from 'action'
+import { StepperAction, EventInfoAction, WebToolsAction } from 'action'
 import history from 'common/history'
+import { StoreState, ActionState } from 'stores'
 
 const Stepper = () => {
-	const [state, dispatch] = useRedux()
+	const [state, dispatch] = useRedux() as [StoreState, ActionState]
 	const [info, setInfo] = useState(DEFAULT_INFO)
 	const [tools, setTools] = useState(DEFAULT_WEB_TOOLS)
 	const [services, setServices] = useState(DEFAULT_SERVICES)
@@ -26,6 +27,7 @@ const Stepper = () => {
 		else {
 			console.log('Create Event')
 			dispatch.eventInfo({ type: EventInfoAction.info, info: info })
+			dispatch.webTools({ type: WebToolsAction.tools, tools: tools })
 			history.push('/dashboard/organize/' + info.name.toLowerCase())
 			handleClose()
 		}

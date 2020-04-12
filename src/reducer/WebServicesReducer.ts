@@ -2,12 +2,12 @@ import { useReducer } from 'react'
 import { DEFAULT_SERVICES } from 'common/constant'
 
 export interface IWebServicesState {
-	page: {
+	page?: {
 		single: boolean
 		multi: boolean
 	}
-	registration: boolean
-	ticket: {
+	registration?: boolean
+	ticket?: {
 		free: boolean
 		pay: boolean
 	}

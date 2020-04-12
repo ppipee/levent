@@ -1,4 +1,4 @@
-import React, { ChangeEvent, MouseEvent } from 'react'
+import React, { ChangeEvent, MouseEvent, Dispatch } from 'react'
 import {
 	About,
 	EventName,
@@ -12,6 +12,9 @@ import {
 	Ticket,
 	TimeSchedule,
 } from 'component/WebTools'
+import useRedux from 'common/useRedux'
+import { StoreState, ActionState } from 'stores'
+import { EventInfoAction as Action } from 'action'
 
 const EventInfo = {
 	eventName: 'TredXKesatsert',
@@ -44,27 +47,35 @@ const EventInfo = {
 }
 
 const DefaultTemplate = () => {
+	const [state, dispatch] = useRedux() as [StoreState, ActionState]
+	const info = state.eventInfo
+
+	const { schedule, socialFollow, gallery, map, route, registration, sponser, ticket } = state.webTools
 	const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+		const setInfo = dispatch.eventInfo
 		const value = e.target.value
 		const type = e.target.getAttribute('data-key')
+		if (type === 'name' || type === 'shortTeaser') {
+			setInfo({ type: Action.info, info: { [type]: value } })
+		}
 	}
 	const handleClick = (e: MouseEvent<HTMLDivElement>) => {
 		console.log('click')
 	}
 	return (
 		<div>
-			<EventName value={EventInfo.eventName} onChange={handleChange} />
-			<About value={EventInfo.about} onChange={handleChange} />
-			<TimeSchedule schedule={EventInfo.schedule} />
+			<EventName value={info.name} onChange={handleChange} />
+			<About value={info.shortTeaser} onChange={handleChange} />
+			{schedule && <TimeSchedule schedule={EventInfo.schedule} />}
 			<Info
 				contact={EventInfo.contact}
 				email={EventInfo.email}
 				dateTime={EventInfo.dateTime}
 				location={EventInfo.location}
 			/>
-			<SocialFollow social={EventInfo.social} />
-			<Gallery />
-			<Registration onClick={handleClick} />
+			{socialFollow && <SocialFollow social={EventInfo.social} />}
+			{gallery && <Gallery />}
+			{registration && <Registration onClick={handleClick} />}
 		</div>
 	)
 }

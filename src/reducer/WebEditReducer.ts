@@ -1,5 +1,5 @@
 import { useReducer } from 'react'
-import { WebEdit as Action } from 'action'
+import { WebEditAction as Action } from 'action'
 import { IWebEdit, ToolsType } from 'common/type'
 import { DEFAULT_WEB_EDIT } from 'common/constant'
 

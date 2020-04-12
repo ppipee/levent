@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { WHITE, CenterFlex, SUB_COLOR, MAIN_COLOR, SoftShadow, SpaceBetweenFlex } from 'common/style'
+import { WHITE, CenterFlex } from 'common/style'
 
 export const WindowContainer = styled.div`
 	position: relative;
@@ -45,23 +45,4 @@ export const TabsContainer = styled.div`
 export const ControlWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
-`
-export const AddTool = styled.div`
-	position: relative;
-	top: -8px;
-	width: 112px;
-	padding: 12px;
-	${CenterFlex()};
-	svg {
-		margin-right: 8px;
-	}
-	color: ${WHITE};
-	border-radius: 2px;
-	background: ${SUB_COLOR};
-	transition: ease-in 0.2s;
-	${SoftShadow}
-	&:hover {
-		cursor: pointer;
-		background: ${MAIN_COLOR};
-	}
 `

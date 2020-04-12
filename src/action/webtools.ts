@@ -1,2 +1,4 @@
-const WebTools = {}
-export default WebTools
+const WebToolsAction = {
+	tools: 'SET_TOOLS',
+}
+export default WebToolsAction
