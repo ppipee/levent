@@ -31,6 +31,7 @@ export const Title = styled.div`
 	line-height: 18px;
 	padding: 4px 0 12px 0;
 	text-transform: capitalize;
+	text-decoration: underline;
 `
 
 export const InfoTitle = styled.div`

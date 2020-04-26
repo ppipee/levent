@@ -9,6 +9,7 @@ interface PropTypes {
 	email?: string
 	location?: {
 		place?: string
+		street?: string
 		province?: string
 		county?: string
 		district?: string

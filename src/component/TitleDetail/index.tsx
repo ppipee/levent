@@ -1,7 +1,7 @@
 import React from 'react'
 import { Line } from 'component/DetailBoard/style'
 import { Title } from './style'
-import { IInputTypes } from 'common/type'
+import { IInputTypes } from 'common/propTypes/tag'
 
 interface PropTypes extends IInputTypes {
 	// index: number

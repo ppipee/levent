@@ -2,6 +2,7 @@ import { useReducer } from 'react'
 import { DEFAULT_INFO } from 'common/constant'
 import { EventInfoAction as Action } from 'action'
 import { IEventInfo } from 'common/type'
+import { ILocation, IDateTime } from 'common/propTypes/info'
 
 const initialState: IEventInfo = {
 	...DEFAULT_INFO,
@@ -10,14 +11,9 @@ const initialState: IEventInfo = {
 export interface IEventInfoAction {
 	type: string
 	info?: object
-	location?: {
-		place: string
-		province: string
-		district: string
-		postCode: string
-	}
-	start?: object
-	end?: object
+	location?: ILocation
+	start?: IDateTime
+	end?: IDateTime
 }
 
 const EventInfoReducer = () => {
@@ -31,12 +27,7 @@ const EventInfoReducer = () => {
 			case Action.location:
 				return {
 					...state,
-					location: action.location as {
-						place: string
-						province: string
-						district: string
-						postCode: string
-					},
+					location: action.location as ILocation,
 				}
 			case Action.start:
 				return {

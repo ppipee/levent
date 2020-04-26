@@ -39,6 +39,7 @@ const EventInfo = {
 	},
 	location: {
 		place: 'Kasetsart University',
+		street: 'Ngamvongvan',
 		province: 'Bangkok',
 		county: 'Chatuchak',
 		district: 'Lat Yao',

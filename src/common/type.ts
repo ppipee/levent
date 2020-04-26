@@ -1,10 +1,5 @@
 import { ChangeEvent } from 'react'
-
-export interface IInputTypes {
-	value: string | number
-	onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
-	readOnly?: boolean
-}
+import { ILocation, IDateTime } from './propTypes/info'
 
 export interface EventTypes {
 	name: string
@@ -16,16 +11,9 @@ export interface EventTypes {
 }
 export interface IEventInfo {
 	name: string
-	startDate: string
-	startTime: string
-	endDate?: string
-	endTime?: string
-	location: {
-		place: string
-		province: string
-		district: string
-		postCode: string
-	}
+	start: IDateTime
+	end: IDateTime
+	location: ILocation
 	shortTeaser: string
 	webName: string
 }

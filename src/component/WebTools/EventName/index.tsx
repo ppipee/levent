@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from 'react'
 import { EventTitle } from './style'
-import { IInputTypes } from 'common/type'
+import { IInputTypes } from 'common/propTypes/tag'
 import { WebToolsWrapper } from 'common/toolsStyle'
 import { TextareaAutosize } from '@material-ui/core'
 

@@ -40,8 +40,9 @@ const Stepper = () => {
 		const e = event.target as HTMLInputElement
 		const key = e.getAttribute('data-key') as string
 		const value = e.value
-		if (step === 0 || step === 3) setInfo({ ...info, [key]: value })
-		else if (step === 1) {
+		if (step === 0 || step === 3) {
+			setInfo({ ...info, [key]: value })
+		} else if (step === 1) {
 			const check = e.getAttribute('value') === 'true' ? true : false
 			console.log(key, !check)
 			setTools({ ...tools, [key]: !check })
@@ -55,9 +56,25 @@ const Stepper = () => {
 			} else setServices({ ...services, [role]: { ...services[role], [key]: !check } })
 		}
 	}
+	const setSubState = (value: string, data_key: string) => {
+		// data_key => start-time,start-date
+		const [key, sub_key] = data_key.split('-')
+		const dateTime = info[key as 'start' | 'end' | 'location'] as any
+		setInfo({
+			...info,
+			[key]: {
+				...dateTime,
+				[sub_key]: value,
+			},
+		})
+	}
 
 	const STEP = [
-		{ title: 'General Info', button: ['cancel', 'next'], component: <FirstStep info={info} setState={setState} /> },
+		{
+			title: 'General Info',
+			button: ['cancel', 'next'],
+			component: <FirstStep info={info} setState={setState} setSubState={setSubState} />,
+		},
 		{ title: 'Web Tools', button: ['back', 'next'], component: <SecondStep tools={tools} setState={setState} /> },
 		{
 			title: 'Web Services',
