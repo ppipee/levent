@@ -1,5 +1,5 @@
 import React, { useState, MouseEvent, ChangeEvent } from 'react'
-import Popup from 'component/Popup'
+import Popup from 'component/common/Popup'
 import { CardContent, CardTitle, ButtonContainer, Button, CloseButton, CardWrapper } from './style'
 import CloseIcon from 'asset/icon/close.svg'
 import { DEFAULT_INFO, DEFAULT_SERVICES, DEFAULT_WEB_TOOLS } from 'common/constant'
@@ -27,8 +27,8 @@ const Stepper = () => {
 		else {
 			console.log('Create Event')
 			dispatch.eventInfo({ type: EventInfoAction.info, info: info })
-			dispatch.webTools({ type: WebToolsAction.tools, tools: tools })
-			history.push('/dashboard/organize/' + info.name.toLowerCase())
+			dispatch.webTools({ type: WebToolsAction.statusTools, statusTools: tools })
+			history.push('/dashboard/organize/' + info.eventName.toLowerCase())
 			handleClose()
 		}
 	}
@@ -59,11 +59,11 @@ const Stepper = () => {
 	const setSubState = (value: string, data_key: string) => {
 		// data_key => start-time,start-date
 		const [key, sub_key] = data_key.split('-')
-		const dateTime = info[key as 'start' | 'end' | 'location'] as any
+		const prevData = info[key as 'dateTime' | 'location'] as any
 		setInfo({
 			...info,
 			[key]: {
-				...dateTime,
+				...prevData,
 				[sub_key]: value,
 			},
 		})

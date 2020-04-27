@@ -1,14 +1,12 @@
-import { IWebTools, IServices, IWebEdit } from './type'
+import { IWebStatusTools, IServices, IWebEdit } from './type'
+import newDate, { DATE_TIME_FORMAT } from './newDate'
 
 export const DEFAULT_INFO = {
-	name: '',
-	start: {
-		date: '', //YYYY-MM-DD
-		time: '00:00', //HH:mm
-	},
-	end: {
-		date: '',
-		time: '00:00',
+	eventName: '',
+	dateTime: {
+		startDate: newDate(DATE_TIME_FORMAT.date) as string, //YYYY-MM-DD
+		startTime: '08:00', //HH:mm
+		// endTime: '18:00',
 	},
 	location: {
 		place: '',
@@ -22,7 +20,17 @@ export const DEFAULT_INFO = {
 	webName: '',
 }
 
-export const DEFAULT_WEB_TOOLS: IWebTools & { [key: string]: boolean } = {
+export type ToolsType =
+	| 'schedule'
+	| 'registration'
+	| 'map'
+	| 'route'
+	| 'gallery'
+	| 'ticket'
+	| 'sponser'
+	| 'socialFollow'
+
+export const DEFAULT_WEB_TOOLS: IWebStatusTools = {
 	schedule: false,
 	registration: false,
 	map: false,

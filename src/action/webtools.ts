@@ -1,4 +1,4 @@
 const WebToolsAction = {
-	tools: 'SET_TOOLS',
+	statusTools: 'SET_STATUS_TOOLS',
 }
 export default WebToolsAction

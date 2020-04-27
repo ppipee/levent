@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Popup from 'component/Popup'
+import Popup from 'component/common/Popup'
 import AddIcon from 'asset/icon/add'
 import { Add } from './style'
 

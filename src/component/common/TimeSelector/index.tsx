@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent, useEffect, useCallback } from 'react'
 import { SearchableSelect } from '@dccs/react-searchable-select-mui'
 
 import RangeArray from 'common/RangeArray'
-import NumberToString from 'common/NumberToString'
+import twoDigiFormat from 'common/twoDigiFormat'
 import { TimeWrapper, MaterialOverride } from './style'
 
 const HOURS = RangeArray(0, 24)
@@ -16,11 +16,11 @@ interface PropTypes {
 
 const timeFormat = (time: number[]) =>
 	time.map(number => {
-		const time = NumberToString(number)
+		const time = twoDigiFormat(number)
 		return { name: time, value: time }
 	})
 const TimeSelector = ({ setTime, value, type }: PropTypes) => {
-	const [hour, minute] = value.split(':')
+	const [hour, minute] = value ? value.split(':') : [null, null]
 	const [timeState, setTimeState] = useState({ hour, minute })
 
 	const handleChange = (e: ChangeEvent<{ name?: string; value: unknown }>, type: string) => {

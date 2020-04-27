@@ -1,6 +1,7 @@
 import React, { ChangeEvent } from 'react'
 import { InputWrapper, InputTitle, InputField, BorderInput, BorderInfo, InputAreaField } from './style'
-import TimeSelector from 'component/TimeSelector'
+import TimeSelector from 'component/common/TimeSelector'
+import { DateSelector } from 'component/common'
 
 interface PropTypes {
 	info: any
@@ -20,7 +21,7 @@ const FirstStep = ({ info, setState, setSubState }: PropTypes) => {
 			<InputWrapper>
 				<InputTitle>Event Name</InputTitle>
 				<BorderInput active={info.name !== ''}>
-					<InputField value={info.name} data-key="name" onChange={setState} />
+					<InputField value={info.name} data-key="eventName" onChange={setState} />
 				</BorderInput>
 			</InputWrapper>
 			<InputWrapper>
@@ -37,11 +38,12 @@ const FirstStep = ({ info, setState, setSubState }: PropTypes) => {
 			</InputWrapper>
 			<InputWrapper>
 				<InputTitle>Start</InputTitle>
-				<TimeSelector value={info.start.time} setTime={setSubState} type="start-time" />
+				<TimeSelector value={info.dateTime.startTime} setTime={setSubState} type="dateTime-startTime" />
+				<DateSelector />
 			</InputWrapper>
 			<InputWrapper>
 				<InputTitle>End</InputTitle>
-				<TimeSelector value={info.end.time} setTime={setSubState} type="end-time" />
+				<TimeSelector value={info.dateTime.endTime} setTime={setSubState} type="ateTime-Endtime" />
 			</InputWrapper>
 		</>
 	)

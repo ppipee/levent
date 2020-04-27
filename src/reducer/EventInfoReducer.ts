@@ -12,8 +12,7 @@ export interface IEventInfoAction {
 	type: string
 	info?: object
 	location?: ILocation
-	start?: IDateTime
-	end?: IDateTime
+	dateTime?: IDateTime
 }
 
 const EventInfoReducer = () => {
@@ -29,13 +28,10 @@ const EventInfoReducer = () => {
 					...state,
 					location: action.location as ILocation,
 				}
-			case Action.start:
+			case Action.dateTime:
 				return {
 					...state,
-				}
-			case Action.end:
-				return {
-					...state,
+					dateTime: action.dateTime as IDateTime,
 				}
 			default:
 				return state

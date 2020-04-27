@@ -1,7 +1,7 @@
 import React, { createContext, ReactNode, Dispatch } from 'react'
 import { StepperReducer, EventInfoReducer, WebServicesReducer, WebToolsReducer, WebEditReducer } from 'reducer'
 import { IStepperState, IStepperAction } from 'reducer/StepperReducer'
-import { IEventInfo, IWebTools, IWebEdit } from 'common/type'
+import { IEventInfo, IWebStatusTools, IWebEdit } from 'common/type'
 import { IWebServicesState, IWebServicesAction } from 'reducer/WebServicesReducer'
 import { IWebEditAction } from 'reducer/WebEditReducer'
 import { IWebToolsAction, IWebToolState } from 'reducer/WebToolsReducer'

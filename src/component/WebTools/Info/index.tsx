@@ -1,26 +1,19 @@
-import React from 'react'
-import { PinIcon, PhoneIcon, EmailIcon, TimeIcon } from 'asset/icon/tools'
-import { WebToolsWrapper, WebToolsInput } from 'common/toolsStyle'
-import { DateTitle, RowWrapper, TimeInput, LocationTextArea } from './style'
+import React, { useCallback } from 'react'
 import { TextareaAutosize } from '@material-ui/core'
+import { isEmpty } from 'lodash'
+
+import { WebToolsWrapper, WebToolsInput } from 'common/toolsStyle'
 import { DAYS, MONTHS } from 'common/date'
+import { IDateTime, ILocation, locationType } from 'common/propTypes/info'
+
+import { DateTitle, RowWrapper, TimeInput, LocationTextArea } from './style'
+import { PinIcon, PhoneIcon, EmailIcon, TimeIcon } from 'asset/icon/tools'
+
 interface PropTypes {
 	contact?: string
 	email?: string
-	location?: {
-		place?: string
-		street?: string
-		province?: string
-		county?: string
-		district?: string
-		postCode?: string
-	}
-	dateTime?: {
-		startDate?: string
-		startTime?: string
-		endDate?: string
-		endTime?: string
-	}
+	location: ILocation
+	dateTime?: IDateTime
 }
 
 const Info = ({ contact, email, location, dateTime }: PropTypes) => {
@@ -41,33 +34,46 @@ const Info = ({ contact, email, location, dateTime }: PropTypes) => {
 		}
 		return `${day} ${date} ${month} ,${year}`
 	}
+	const locationFormat = useCallback(() => {
+		return Object.keys(location).reduce((text: string, key: string) => {
+			if (isEmpty(location[key as locationType])) return text
+			const detail = location[key as locationType]
+			if (key === 'street') return text + detail + 'Road'
+			return text + detail
+		}, '')
+	}, [location])
+
 	return (
 		<WebToolsWrapper>
 			<DateTitle value={rePresentDate()} />
 			<div>
-				{dateTime && (
+				{!isEmpty(dateTime) && (
 					<RowWrapper>
 						<TimeIcon />
 						<TimeInput value={dateTime?.startTime} />
-						{' - '}
-						<TimeInput value={dateTime?.endTime} />
+						{!isEmpty(dateTime?.endTime) && (
+							<>
+								{' - '}
+								<TimeInput value={dateTime?.endTime} />
+							</>
+						)}
 					</RowWrapper>
 				)}
-				{location && (
+				{!isEmpty(locationFormat()) && (
 					<RowWrapper>
 						<PinIcon />
 						<LocationTextArea>
-							<TextareaAutosize value={Object.values(location).join(' ')} />
+							<TextareaAutosize value={locationFormat()} />
 						</LocationTextArea>
 					</RowWrapper>
 				)}
-				{email && (
+				{!isEmpty(email) && (
 					<RowWrapper>
 						<EmailIcon />
 						<WebToolsInput value={email} />
 					</RowWrapper>
 				)}
-				{contact && (
+				{!isEmpty(contact) && (
 					<RowWrapper>
 						<PhoneIcon />
 						<WebToolsInput value={contact} />

@@ -1,7 +1,6 @@
 const EventInfoAction = {
 	info: 'SET_INFO', //name,short teaser
 	location: 'SET_LOCATION',
-	start: 'SET_START',
-	end: 'SET_END',
+	dateTime: 'SET_DATE_TIME',
 }
 export default EventInfoAction

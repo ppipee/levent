@@ -10,15 +10,14 @@ export interface EventTypes {
 	color?: string
 }
 export interface IEventInfo {
-	name: string
-	start: IDateTime
-	end: IDateTime
+	eventName: string
+	dateTime: IDateTime
 	location: ILocation
 	shortTeaser: string
 	webName: string
 }
 
-export interface IWebTools {
+export interface IWebStatusTools {
 	schedule: boolean
 	registration: boolean
 	map: boolean

@@ -1,4 +1,5 @@
 import React, { ChangeEvent, MouseEvent, Dispatch } from 'react'
+
 import {
 	About,
 	EventName,
@@ -51,7 +52,7 @@ const DefaultTemplate = () => {
 	const [state, dispatch] = useRedux() as [StoreState, ActionState]
 	const info = state.eventInfo
 
-	const { schedule, socialFollow, gallery, map, route, registration, sponser, ticket } = state.webTools
+	const { schedule, socialFollow, gallery, map, route, registration, sponser, ticket } = state.webTools.statusTools
 	const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const setInfo = dispatch.eventInfo
 		const value = e.target.value
@@ -63,16 +64,17 @@ const DefaultTemplate = () => {
 	const handleClick = (e: MouseEvent<HTMLDivElement>) => {
 		console.log('click')
 	}
+	console.log(state.webTools)
 	return (
 		<div>
-			<EventName value={info.name} onChange={handleChange} />
+			<EventName value={info.eventName} onChange={handleChange} />
 			<About value={info.shortTeaser} onChange={handleChange} />
 			{schedule && <TimeSchedule schedule={EventInfo.schedule} />}
 			<Info
 				contact={EventInfo.contact}
 				email={EventInfo.email}
-				dateTime={EventInfo.dateTime}
-				location={EventInfo.location}
+				dateTime={info.dateTime}
+				location={info.location}
 			/>
 			{socialFollow && <SocialFollow social={EventInfo.social} />}
 			{gallery && <Gallery />}

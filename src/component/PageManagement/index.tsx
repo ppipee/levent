@@ -35,7 +35,7 @@ const PageManagement = () => {
 				<Title>General Info</Title>
 				<ContentBlock>
 					<InfoTitle>{'Event Name 		:'}</InfoTitle>
-					<InputField value={state.name} data-key="name" onChange={handleChange} />
+					<InputField value={state.eventName} data-key="name" onChange={handleChange} />
 				</ContentBlock>
 				<ContentBlock>
 					<InfoTitle>{'Location	 		:'}</InfoTitle>

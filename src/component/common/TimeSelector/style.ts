@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { CenterFlex } from 'common/style'
 
 export const TimeWrapper = styled.div`
 	width: 294px !important;
@@ -12,6 +11,6 @@ export const MaterialOverride = styled.div`
 		margin: 0;
 	}
 	.MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-formControl.MuiInput-formControl {
-		min-width: 64px !important;
+		min-width: 80px !important;
 	}
 `
