@@ -15,7 +15,7 @@ import SelectTemplate from './SelectTemplate'
 import useRedux from 'common/useRedux'
 import { WebEditAction as Action } from 'action'
 
-const info = [
+const SELECT_TYPES = [
 	{ title: 'Web Template', icon: TemplateIcon, state: 'template' },
 	{ title: 'Web Customizer', icon: TemplateIcon, state: 'customizer' },
 ]
@@ -26,6 +26,7 @@ const WebStyle = () => {
 	const [stateStyle, setState] = useState('template')
 	const [step, setStep] = useState(0)
 	const [state, dispatch] = useRedux('webEdit')
+
 	const toggleState = (e: MouseEvent) => {
 		const target = e.target as HTMLDivElement
 		const key = target.getAttribute('data-key') as string
@@ -35,16 +36,18 @@ const WebStyle = () => {
 		if (step !== 1) setStep(1)
 		else buildWeb()
 	}
+
 	const prevStep = () => {
 		setStep(0)
 	}
+
 	const buildWeb = () => {
 		dispatch({ type: Action.build })
 		console.log('build')
 	}
 
 	const genCards = () =>
-		info.map(info => (
+		SELECT_TYPES.map(info => (
 			<div key={`${info.title}`}>
 				<TabHighLight select={stateStyle === info.state} />
 				<BackgroundCard select={stateStyle === info.state} data-key={info.state} onClick={toggleState}>
@@ -68,6 +71,7 @@ const WebStyle = () => {
 				{BUTTON_TEXT[step]}
 			</Button>
 		)
+
 	const step_container = [
 		{ title: 'select web style', component: <CardsWrapper>{genCards()}</CardsWrapper> },
 		{
@@ -75,6 +79,7 @@ const WebStyle = () => {
 			component: <SelectTemplate />,
 		},
 	]
+
 	return (
 		<Background>
 			<SelectStyleWrapper>
@@ -88,4 +93,5 @@ const WebStyle = () => {
 		</Background>
 	)
 }
+
 export default WebStyle

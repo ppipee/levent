@@ -1,18 +1,24 @@
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, Dispatch } from 'react'
 import DetailBoard from 'component/DetailBoard'
 import { ContentBlock, WebBlock, Title, InfoTitle, IconWrapper, InputField, InputAreaField } from './style'
 import ShareIcon from 'asset/icon/share.svg'
 import ViewIcon from 'asset/icon/view.svg'
 import useRedux from 'common/useRedux'
 import { EventInfoAction as Action } from 'action'
+import { IEventInfo } from 'common/type'
+import { IEventInfoAction } from 'reducer/EventInfoReducer'
+import setLocation from 'action/info/setLocation'
 
+export const PLACE_KEY = ['address', 'street', 'province', 'postcode', 'county', 'district']
 const PageManagement = () => {
-	const [state, dispatch] = useRedux('eventInfo')
+	const [state, dispatch] = useRedux('eventInfo') as [IEventInfo, Dispatch<IEventInfoAction>]
 	const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const value = e.target.value
-		const type = e.target.getAttribute('data-key')
-		if (type === 'name' || type === 'shortTeaser') {
+		const type = e.target.getAttribute('data-key') as string
+		if (type === 'name' || type === 'shortTeaser' || type === 'webName') {
 			dispatch({ type: Action.info, info: { [type]: value } })
+		} else if (PLACE_KEY.includes(type)) {
+			dispatch(setLocation(state.location, value, type))
 		}
 	}
 
@@ -39,7 +45,7 @@ const PageManagement = () => {
 				</ContentBlock>
 				<ContentBlock>
 					<InfoTitle>{'Location	 		:'}</InfoTitle>
-					<InputField />
+					<InputField value={state.location.address} data-key="address" onChange={handleChange} />
 				</ContentBlock>
 				<ContentBlock>
 					<InfoTitle>{'Start Date 		:'}</InfoTitle>

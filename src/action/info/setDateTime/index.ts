@@ -1,4 +1,4 @@
-import EventInfoAction from '../eventinfo'
+import EventInfoAction from '../../eventinfo'
 
 export const setDateTime = (type: string, date?: string, time?: string) => {
 	let date_time = {}

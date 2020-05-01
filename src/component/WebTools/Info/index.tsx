@@ -4,7 +4,7 @@ import { isEmpty } from 'lodash'
 
 import { WebToolsWrapper, WebToolsInput } from 'common/toolsStyle'
 import { DAYS, MONTHS } from 'common/date'
-import { IDateTime, ILocation, locationType } from 'common/propTypes/info'
+import { IDateTime, ILocation, TLocation } from 'common/propTypes/info'
 
 import { DateTitle, RowWrapper, TimeInput, LocationTextArea } from './style'
 import { PinIcon, PhoneIcon, EmailIcon, TimeIcon } from 'asset/icon/tools'
@@ -36,8 +36,8 @@ const Info = ({ contact, email, location, dateTime }: PropTypes) => {
 	}
 	const locationFormat = useCallback(() => {
 		return Object.keys(location).reduce((text: string, key: string) => {
-			if (isEmpty(location[key as locationType])) return text
-			const detail = location[key as locationType]
+			if (isEmpty(location[key as TLocation])) return text
+			const detail = location[key as TLocation]
 			if (key === 'street') return text + detail + 'Road'
 			return text + detail
 		}, '')

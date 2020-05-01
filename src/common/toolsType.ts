@@ -1,13 +1,3 @@
-export interface ISchedulePeriod {
-	[key: string]: string
-	start: string
-	end: string
-	detail: string
-}
-export interface ISchedule {
-	title?: string
-	schedule: ISchedulePeriod[]
-}
 export interface IGalleryImage {
 	path: string
 	detail: string

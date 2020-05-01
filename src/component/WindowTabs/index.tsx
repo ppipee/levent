@@ -1,9 +1,11 @@
-import React, { useState, MouseEvent, Dispatch } from 'react'
+import React, { useState, MouseEvent, Dispatch, useCallback } from 'react'
 import { TabsContainer, Tab, ItemsContainer, WindowContainer, ControlWrapper } from './style'
 import { ScheduleDetail, GalleryDetail, SocialDetail } from 'component/ToolsDetail'
 import { SCHEDULE, GALLERY } from 'common/mockapi'
 import { Add } from 'component'
 import { IWebToolState, IWebToolsAction } from 'reducer/WebToolsReducer'
+import setSchedule from 'action/tools/setSchedule'
+import { ISchedule } from 'common/propTypes/tools'
 
 const TABS = ['Schedule', 'Gallery', 'Social', 'Sponser']
 
@@ -14,12 +16,25 @@ interface PropTypes {
 
 const WindowTabs = ({ tools, setTools }: PropTypes) => {
 	const [tab, setTab] = useState(0)
+
+	const setStore = (data: any, index: number, type: string) => {
+		if (type === 'schedule') {
+			const schedule = setSchedule(data.title, data.schedule, index, tools.schedules as ISchedule[])
+			setTools(schedule)
+		}
+	}
+
 	const TOOLS = [
 		{
 			select: 'Schedule',
 			component: () =>
-				SCHEDULE.map((schedule, index) => (
-					<ScheduleDetail key={`${schedule.title}-${index}`} getSchedule={schedule} />
+				tools.schedules?.map((schedule, index) => (
+					<ScheduleDetail
+						key={`${schedule.title}-${index}`}
+						getSchedule={schedule}
+						setStore={setStore}
+						index={index}
+					/>
 				)),
 		},
 		{

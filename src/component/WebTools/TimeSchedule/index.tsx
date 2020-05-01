@@ -4,19 +4,23 @@ import { Period, DotCircle, Time, PeriodInfo, LineVertical, ScheduleWrapper } fr
 import { TextareaAutosize } from '@material-ui/core'
 interface PropTypes {
 	schedule: {
-		start: string
-		end: string
-		detail: string
-	}[]
+		title: string
+		schedule: {
+			start: string
+			end: string
+			detail: string
+		}[]
+	}
+	index?: number
 }
 
-const TimeSchedule = ({ schedule }: PropTypes) => {
+const TimeSchedule = ({ schedule, index = 0 }: PropTypes) => {
 	return (
 		<WebToolsWrapper>
-			<WebToolsTitle>TimeSchedule</WebToolsTitle>
+			<WebToolsTitle>{schedule.title || 'TimeSchedule'}</WebToolsTitle>
 			<ScheduleWrapper>
 				<LineVertical />
-				{schedule.map(({ start, end, detail }, index) => (
+				{schedule.schedule.map(({ start, end, detail }, index) => (
 					<Period key={start}>
 						<DotCircle />
 						<Time>{`${start} - ${end}`}</Time>

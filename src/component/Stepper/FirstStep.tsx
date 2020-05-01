@@ -32,8 +32,8 @@ const FirstStep = ({ info, setState, setSubState }: PropTypes) => {
 			</InputWrapper>
 			<InputWrapper>
 				<InputTitle>Location</InputTitle>
-				<BorderInput active={info.location.place !== ''}>
-					<InputField value={info.location.place} onChange={setLocation} data-key="place" />
+				<BorderInput active={info.location.address !== ''}>
+					<InputField value={info.location.address} onChange={setLocation} data-key="address" />
 				</BorderInput>
 			</InputWrapper>
 			<InputWrapper>
@@ -44,6 +44,7 @@ const FirstStep = ({ info, setState, setSubState }: PropTypes) => {
 			<InputWrapper>
 				<InputTitle>End</InputTitle>
 				<TimeSelector value={info.dateTime.endTime} setTime={setSubState} type="ateTime-Endtime" />
+				<DateSelector />
 			</InputWrapper>
 		</>
 	)

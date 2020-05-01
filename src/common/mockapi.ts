@@ -1,5 +1,6 @@
 import ImageNotFound from 'asset/img/img_not_found.png'
-import { ISchedule, IGallery } from 'common/toolsType'
+import { IGallery } from 'common/toolsType'
+import { ISchedule } from 'common/propTypes/tools'
 
 export const SCHEDULE: ISchedule[] = [
 	{

@@ -1,7 +1,7 @@
-export type locationType = 'place' | 'street' | 'province' | 'county' | 'district' | 'postCode'
+export type TLocation = 'address' | 'street' | 'province' | 'county' | 'district' | 'postCode'
 
 export interface ILocation {
-	place: string
+	address: string
 	street?: string
 	province?: string
 	county?: string

@@ -1,5 +1,6 @@
 import { IWebStatusTools, IServices, IWebEdit } from './type'
 import newDate, { DATE_TIME_FORMAT } from './newDate'
+import { ISchedule } from './propTypes/tools'
 
 export const DEFAULT_INFO = {
 	eventName: '',
@@ -9,7 +10,7 @@ export const DEFAULT_INFO = {
 		// endTime: '18:00',
 	},
 	location: {
-		place: '',
+		address: '',
 		street: '',
 		province: '',
 		county: '',
@@ -58,9 +59,14 @@ export const DEFAULT_SERVICES: IServices & PropTypes = {
 }
 
 export const DEFAULT_WEB_EDIT: IWebEdit = {
-	build: true, //default is false
+	build: false, //default is false
 	selectedTool: 'cursor',
 }
 
 export const WIDTH_TOOL_CONFIG = '240px'
 export const HEIGHT_NAV_BAR = '56px'
+
+export const DEFAULT_SCHEDULE: ISchedule = {
+	title: '',
+	schedule: [],
+}

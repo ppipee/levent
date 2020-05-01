@@ -17,38 +17,6 @@ const SelectTemplate = () => {
 					<TemplateCard />
 					<TemplateTitle>Default</TemplateTitle>
 				</TemplateCardWrapper>
-				<TemplateCardWrapper>
-					<TemplateCard />
-					<TemplateTitle>Default</TemplateTitle>
-				</TemplateCardWrapper>
-				<TemplateCardWrapper>
-					<TemplateCard />
-					<TemplateTitle>Default</TemplateTitle>
-				</TemplateCardWrapper>
-				<TemplateCardWrapper>
-					<TemplateCard />
-					<TemplateTitle>Default</TemplateTitle>
-				</TemplateCardWrapper>
-				<TemplateCardWrapper>
-					<TemplateCard />
-					<TemplateTitle>Default</TemplateTitle>
-				</TemplateCardWrapper>
-				<TemplateCardWrapper>
-					<TemplateCard />
-					<TemplateTitle>Default</TemplateTitle>
-				</TemplateCardWrapper>
-				<TemplateCardWrapper>
-					<TemplateCard />
-					<TemplateTitle>Default</TemplateTitle>
-				</TemplateCardWrapper>
-				<TemplateCardWrapper>
-					<TemplateCard />
-					<TemplateTitle>Default</TemplateTitle>
-				</TemplateCardWrapper>
-				<TemplateCardWrapper>
-					<TemplateCard />
-					<TemplateTitle>Default</TemplateTitle>
-				</TemplateCardWrapper>
 			</TemplatesContainer>
 		</SelectWrapper>
 	)

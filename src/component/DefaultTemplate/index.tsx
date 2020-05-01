@@ -39,7 +39,7 @@ const EventInfo = {
 		endTime: '18:00',
 	},
 	location: {
-		place: 'Kasetsart University',
+		address: 'Kasetsart University',
 		street: 'Ngamvongvan',
 		province: 'Bangkok',
 		county: 'Chatuchak',
@@ -51,7 +51,7 @@ const EventInfo = {
 const DefaultTemplate = () => {
 	const [state, dispatch] = useRedux() as [StoreState, ActionState]
 	const info = state.eventInfo
-
+	const tools = state.webTools
 	const { schedule, socialFollow, gallery, map, route, registration, sponser, ticket } = state.webTools.statusTools
 	const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		const setInfo = dispatch.eventInfo
@@ -64,20 +64,21 @@ const DefaultTemplate = () => {
 	const handleClick = (e: MouseEvent<HTMLDivElement>) => {
 		console.log('click')
 	}
+
 	console.log(state.webTools)
 	return (
 		<div>
 			<EventName value={info.eventName} onChange={handleChange} />
 			<About value={info.shortTeaser} onChange={handleChange} />
-			{schedule && <TimeSchedule schedule={EventInfo.schedule} />}
+			{tools.schedules && <TimeSchedule schedule={tools.schedules[0]} />}
 			<Info
 				contact={EventInfo.contact}
 				email={EventInfo.email}
 				dateTime={info.dateTime}
 				location={info.location}
 			/>
-			{socialFollow && <SocialFollow social={EventInfo.social} />}
 			{gallery && <Gallery />}
+			{socialFollow && <SocialFollow social={EventInfo.social} />}
 			{registration && <Registration onClick={handleClick} />}
 		</div>
 	)

@@ -10,7 +10,7 @@ interface PropTypes extends IInputTypes {
 const TitleDetail = ({ value, readOnly = false, onChange }: PropTypes) => {
 	return (
 		<div>
-			<Title value={value} readOnly={readOnly} onChange={onChange} />
+			<Title value={value} readOnly={readOnly} onChange={onChange} placeholder="enter tool title" />
 			<Line />
 		</div>
 	)

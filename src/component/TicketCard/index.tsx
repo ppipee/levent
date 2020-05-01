@@ -5,7 +5,7 @@ import PinIcon from 'asset/icon/pin.svg'
 import ArrowIcon from 'asset/icon/arrow.svg'
 import { EventTypes } from 'common/type'
 
-const TicketCard = ({ name, date, time, place, color = 'gray' }: EventTypes) => {
+const TicketCard = ({ name, date, time, location, color = 'gray' }: EventTypes) => {
 	return (
 		<TicketWrapper>
 			<TicketBackground color={color}>
@@ -22,8 +22,8 @@ const TicketCard = ({ name, date, time, place, color = 'gray' }: EventTypes) => 
 							<img src={PinIcon} alt="pin-icon" />
 						</Icon>
 						<div>
-							<div>{place.name}</div>
-							<div>{place.province}</div>
+							<div>{location.address}</div>
+							<div>{location.province}</div>
 						</div>
 					</Detail>
 				</TicketContainner>
