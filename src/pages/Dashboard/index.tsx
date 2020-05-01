@@ -47,9 +47,9 @@ const Dashboard = () => {
 			</EventBoard>
 			<EventBoard name="favourite" showall="/dashboard/favourite"></EventBoard>
 			<EventBoard name="organize" showall="/dashboard/organize">
-				<Link to="/dashboard/organize/e1">
+				{/* <Link to="/dashboard/organize/e1">
 					<button>Event</button>
-				</Link>
+				</Link> */}
 				<CreateCard handleOpen={handleOpen} />
 			</EventBoard>
 			{state.show && <Stepper />}
